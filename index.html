@@ -301,18 +301,44 @@
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; scroll-behavior: auto; }
   }
+
+  .gallery-topbar {
+    display: flex; align-items: center; gap: .8rem;
+    padding: .7rem 1rem; background: #fff;
+    border-bottom: 2px solid rgba(123,75,214,.1);
+    position: sticky; top: 0; z-index: 55;
+  }
+  .back-btn {
+    border: none; background: var(--cream); color: var(--grape-dark);
+    font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1rem;
+    padding: .5rem 1.1rem; border-radius: 999px; cursor: pointer;
+    transition: transform .1s, background .12s;
+  }
+  .back-btn:hover { background: #f0e7fb; }
+  .back-btn:active { transform: scale(.95); }
+  .topbar-logo { height: 34px; width: auto; }
+  /* When the gallery topbar is present, the controls bar sticks below it */
+  #gallery-screen .controls { top: 51px; }
 </style>
 </head>
 <body>
+<div id="landing-screen">
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
   <h1 class="visually-hidden">Twinkle Pop Face — Face Painting</h1>
   <p class="tag">Bright, sparkly face painting for parties, festivals, and events.</p>
   <div class="hero-cta">
-    <a href="#gallery" class="btn btn-grape">Browse designs</a>
-    <a href="#contact" class="btn btn-coral">Book us</a>
+    <button class="btn btn-grape" id="browse-btn">Browse designs</button>
+    <button class="btn btn-coral" id="book-btn">Book us</button>
   </div>
 </header>
+</div>
+
+<div id="gallery-screen" hidden>
+<div class="gallery-topbar">
+  <button class="back-btn" id="back-btn" aria-label="Back to home">← Back</button>
+  <img class="topbar-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
+</div>
 
 <div class="controls">
   <div class="search-wrap">
@@ -384,6 +410,7 @@
 </div>
 
 <footer>© 2026 Twinkle Pop Face</footer>
+</div><!-- /gallery-screen -->
 
 <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Design preview">
   <div class="lb-inner">
@@ -428,6 +455,15 @@ async function load() {
   buildTabs();
   buildPriceControls();
   render();
+
+  // Seed history so Back has a landing state to return to.
+  history.replaceState({ screen: "landing" }, "", location.hash === "#browse" ? "#browse" : "#");
+  // If someone opened a link straight to the gallery, show it.
+  if (location.hash === "#browse") {
+    $("landing-screen").hidden = true;
+    $("gallery-screen").hidden = false;
+    history.pushState({ screen: "gallery" }, "", "#browse");
+  }
 }
 
 function availablePrices() {
@@ -625,6 +661,36 @@ let t;
 $("search").addEventListener("input", (e) => {
   clearTimeout(t);
   t = setTimeout(() => { query = e.target.value.trim(); showingFavs = false; render(); }, 120);
+});
+
+// ---- Screen switching (landing <-> gallery) ----
+function showGallery(push) {
+  $("landing-screen").hidden = true;
+  $("gallery-screen").hidden = false;
+  window.scrollTo(0, 0);
+  if (push) history.pushState({ screen: "gallery" }, "", "#browse");
+}
+function showLanding(push) {
+  $("gallery-screen").hidden = true;
+  $("landing-screen").hidden = false;
+  window.scrollTo(0, 0);
+  if (push) history.pushState({ screen: "landing" }, "", "#");
+}
+function scrollToContact() {
+  showGallery(true);
+  setTimeout(() => { $("contact").scrollIntoView({ behavior: "smooth" }); }, 40);
+}
+
+$("browse-btn").onclick = () => showGallery(true);
+$("book-btn").onclick = () => scrollToContact();
+$("back-btn").onclick = () => history.back();
+
+// Make the phone/browser Back button move between screens reliably
+window.addEventListener("popstate", (e) => {
+  const screen = (e.state && e.state.screen) || "landing";
+  if (screen === "gallery") { $("landing-screen").hidden = true; $("gallery-screen").hidden = false; }
+  else { $("gallery-screen").hidden = true; $("landing-screen").hidden = false; }
+  window.scrollTo(0, 0);
 });
 
 load();
