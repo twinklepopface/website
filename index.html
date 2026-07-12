@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Twinkle Pop Face — Face Painting</title>
+<meta name="description" content="Browse Twinkle Pop Face designs by category, search by name, and book for your next event." />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/favicon-180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #2b2440;
+    --cream: #fdf6ec;
+    --card: #ffffff;
+    --grape: #7b4bd6;
+    --grape-dark: #5f34ad;
+    --coral: #ff6b8b;
+    --mango: #ffb23e;
+    --mint: #35c6a5;
+    --sky: #4bb4e6;
+    --muted: #8a809c;
+    --shadow: 0 8px 24px rgba(60, 40, 100, 0.12);
+    --radius: 20px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Nunito", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display { font-family: "Baloo 2", system-ui, sans-serif; }
+  a { color: inherit; }
+
+  /* Header / hero */
+  header.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255,178,62,.20), transparent 40%),
+      radial-gradient(circle at 88% 16%, rgba(255,107,139,.18), transparent 42%),
+      radial-gradient(circle at 75% 92%, rgba(75,180,230,.18), transparent 46%),
+      linear-gradient(170deg, #fffdf9 0%, #fbf3fb 55%, #f3ecfb 100%);
+    color: var(--ink);
+    padding: 2.6rem 1.25rem 2.2rem;
+    text-align: center;
+  }
+  .hero-logo {
+    width: min(340px, 78vw);
+    height: auto;
+    margin: 0 auto .2rem;
+    display: block;
+    filter: drop-shadow(0 6px 14px rgba(120, 80, 180, 0.18));
+  }
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .hero p.tag {
+    font-size: clamp(1rem, 2.6vw, 1.25rem);
+    margin: .2rem auto 0;
+    max-width: 34ch;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .hero-cta {
+    margin-top: 1.4rem;
+    display: inline-flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn {
+    border: none;
+    cursor: pointer;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: .7rem 1.4rem;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform .12s ease, box-shadow .12s ease;
+    box-shadow: 0 4px 0 rgba(0,0,0,.12);
+  }
+  .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,.12); }
+  .btn-coral { background: var(--coral); color: #fff; }
+  .btn-grape { background: var(--grape); color: #fff; }
+  .btn-white { background: #fff; color: var(--grape-dark); }
+
+  /* Sticky control bar */
+  .controls {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(253, 246, 236, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid rgba(123,75,214,.10);
+    padding: .75rem 1rem .6rem;
+  }
+  .search-wrap {
+    max-width: 620px;
+    margin: 0 auto .55rem;
+    position: relative;
+  }
+  .search-wrap svg {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    width: 20px; height: 20px; color: var(--muted);
+  }
+  #search {
+    width: 100%;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: .8rem 1rem .8rem 2.9rem;
+    border: 2px solid rgba(123,75,214,.18);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  #search:focus { border-color: var(--grape); box-shadow: 0 0 0 4px rgba(123,75,214,.15); }
+
+  .tabs {
+    display: flex;
+    gap: .5rem;
+    overflow-x: auto;
+    padding-bottom: .2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex: 0 0 auto;
+    border: 2px solid transparent;
+    background: #fff;
+    color: var(--ink);
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 600;
+    font-size: .95rem;
+    padding: .5rem 1.1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+    transition: transform .1s;
+  }
+  .tab[aria-selected="true"] { background: var(--grape); color: #fff; }
+  .tab:active { transform: scale(.96); }
+
+  /* Gallery */
+  main { max-width: 1100px; margin: 0 auto; padding: 1.4rem 1rem 3rem; }
+  .cat-title {
+    font-size: 1.5rem; font-weight: 700; margin: 1.6rem .2rem .8rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .cat-title .count { font-family: "Nunito"; font-size: .85rem; font-weight: 700; color: #fff; background: var(--mango); padding: .1rem .6rem; border-radius: 999px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .9rem;
+  }
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    text-align: left;
+    transition: transform .12s ease, box-shadow .12s ease;
+    display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(60,40,100,.18); }
+  .card:focus-visible { outline: 3px solid var(--grape); outline-offset: 2px; }
+  .card .thumb { aspect-ratio: 1/1; width: 100%; object-fit: cover; background: #efe7f8; display: block; }
+  .card .label {
+    padding: .6rem .7rem .7rem;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 600; font-size: .95rem;
+    display: flex; justify-content: space-between; align-items: center; gap: .4rem;
+  }
+  .fav-btn {
+    border: none; background: none; cursor: pointer; font-size: 1.15rem; line-height: 1;
+    padding: 2px; color: #d9cfe8; transition: transform .1s;
+  }
+  .fav-btn.on { color: var(--coral); }
+  .fav-btn:active { transform: scale(1.3); }
+
+  .empty { text-align: center; color: var(--muted); font-weight: 600; padding: 3rem 1rem; }
+
+  /* Lightbox */
+  .lb {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(30,20,50,.82);
+    display: none; align-items: center; justify-content: center;
+    padding: 1.2rem;
+  }
+  .lb.open { display: flex; }
+  .lb-inner {
+    background: #fff; border-radius: 24px; overflow: hidden;
+    max-width: 480px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    animation: pop .18s ease;
+  }
+  @keyframes pop { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .lb-inner img { width: 100%; display: block; max-height: 65vh; object-fit: contain; background: #f2ecfa; }
+  .lb-bar { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; }
+  .lb-bar h3 { margin: 0; font-size: 1.25rem; }
+  .lb-close { border: none; background: var(--cream); width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: var(--ink); }
+
+  /* Static sections */
+  section.block { max-width: 800px; margin: 0 auto; padding: 2.4rem 1.2rem; }
+  section.block h2 { font-size: 1.8rem; margin: 0 0 1rem; }
+  .prices { display: grid; gap: .7rem; }
+  .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #fff; border-radius: 16px; padding: .9rem 1.2rem; box-shadow: var(--shadow);
+    font-weight: 700;
+  }
+  .price-row .amt { color: var(--grape-dark); font-family: "Baloo 2"; }
+  .contact-card {
+    background: linear-gradient(160deg, var(--mint), var(--sky));
+    color: #fff; border-radius: 24px; padding: 1.8rem; text-align: center;
+  }
+  .contact-card a.btn { margin-top: 1rem; }
+  footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--muted); font-weight: 600; font-size: .9rem; }
+
+  .favbar {
+    position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: #fff; border-radius: 999px;
+    padding: .7rem 1.3rem; font-weight: 700; font-family: "Baloo 2";
+    box-shadow: 0 10px 30px rgba(0,0,0,.3); cursor: pointer; display: none;
+    align-items: center; gap: .5rem; z-index: 60; border: none; font-size: 1rem;
+  }
+  .favbar.show { display: inline-flex; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <img class="hero-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
+  <h1 class="visually-hidden">Twinkle Pop Face — Face Painting</h1>
+  <p class="tag">Bright, sparkly face painting for parties, festivals, and events.</p>
+  <div class="hero-cta">
+    <a href="#gallery" class="btn btn-grape">Browse designs</a>
+    <a href="#contact" class="btn btn-coral">Book us</a>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="search" type="search" placeholder="Search designs — tiger, unicorn, spider…" autocomplete="off" />
+  </div>
+  <div class="tabs" id="tabs" role="tablist"></div>
+</div>
+
+<main id="gallery">
+  <div id="results"></div>
+  <div class="empty" id="empty" hidden>No designs match that search. Try another word!</div>
+</main>
+
+<section class="block" id="prices">
+  <h2>Prices</h2>
+  <div class="prices">
+    <div class="price-row"><span>Single design (cheek art)</span><span class="amt">$8</span></div>
+    <div class="price-row"><span>Full face</span><span class="amt">$15</span></div>
+    <div class="price-row"><span>Glitter / gem add-on</span><span class="amt">$3</span></div>
+    <div class="price-row"><span>Event booking (per hour)</span><span class="amt">from $120</span></div>
+  </div>
+  <p style="color:var(--muted);font-weight:600;margin-top:1rem">Prices are a starting point — edit these to match your rates.</p>
+</section>
+
+<section class="block" id="contact">
+  <div class="contact-card">
+    <h2 style="margin-top:0">Book us for your event</h2>
+    <p style="font-weight:600;max-width:40ch;margin:0 auto">Birthday parties, school fairs, corporate days — get in touch to check a date.</p>
+    <a href="mailto:hello@example.com" class="btn btn-white">Email to book</a>
+  </div>
+</section>
+
+<footer>Made with ✨ · Twinkle Pop Face</footer>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Design preview">
+  <div class="lb-inner">
+    <img id="lb-img" src="" alt="" />
+    <div class="lb-bar">
+      <h3 id="lb-title"></h3>
+      <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+    </div>
+  </div>
+</div>
+
+<button class="favbar" id="favbar" aria-live="polite"></button>
+
+<script>
+const FAVKEY = "pf_favs";
+let DATA = { categories: [] };
+let favs = new Set();
+try { favs = new Set(JSON.parse(localStorage.getItem(FAVKEY) || "[]")); } catch (e) {}
+let activeCat = "all";
+let query = "";
+let showingFavs = false;
+
+const $ = (id) => document.getElementById(id);
+const keyOf = (d) => d.full || d.file; // stable id for favorites
+
+async function load() {
+  try {
+    const res = await fetch("assets/designs.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("no manifest");
+    DATA = await res.json();
+  } catch (e) {
+    DATA = { categories: [] };
+  }
+  buildTabs();
+  render();
+}
+
+function buildTabs() {
+  const tabs = $("tabs");
+  const cats = [{ id: "all", name: "All" }, ...DATA.categories.map((c) => ({ id: c.id, name: c.name }))];
+  tabs.innerHTML = "";
+  cats.forEach((c) => {
+    const b = document.createElement("button");
+    b.className = "tab";
+    b.textContent = c.name;
+    b.setAttribute("role", "tab");
+    b.setAttribute("aria-selected", c.id === activeCat ? "true" : "false");
+    b.onclick = () => { activeCat = c.id; showingFavs = false; buildTabs(); render(); };
+    tabs.appendChild(b);
+  });
+}
+
+function allDesigns() {
+  const out = [];
+  DATA.categories.forEach((c) =>
+    c.designs.forEach((d) => out.push({ ...d, cat: c.id, catName: c.name }))
+  );
+  return out;
+}
+
+function render() {
+  const results = $("results");
+  results.innerHTML = "";
+  let cats = DATA.categories;
+
+  if (showingFavs) {
+    const favDesigns = allDesigns().filter((d) => favs.has(keyOf(d)));
+    renderGroup(results, "★ Favorites", favDesigns);
+    $("empty").hidden = favDesigns.length > 0;
+    updateFavbar();
+    return;
+  }
+
+  if (activeCat !== "all") cats = cats.filter((c) => c.id === activeCat);
+
+  let total = 0;
+  cats.forEach((c) => {
+    let designs = c.designs.map((d) => ({ ...d, cat: c.id, catName: c.name }));
+    if (query) designs = designs.filter((d) => match(d));
+    if (designs.length) {
+      renderGroup(results, c.name, designs);
+      total += designs.length;
+    }
+  });
+
+  $("empty").hidden = total > 0 || DATA.categories.length === 0;
+  if (DATA.categories.length === 0) {
+    results.innerHTML = '<div class="empty">Your gallery is empty. Add images to the <b>designs/</b> folders and push to GitHub — they\'ll appear here automatically.</div>';
+  }
+  updateFavbar();
+}
+
+function match(d) {
+  const q = query.toLowerCase();
+  return d.name.toLowerCase().includes(q) || d.catName.toLowerCase().includes(q);
+}
+
+function renderGroup(container, title, designs) {
+  const h = document.createElement("h2");
+  h.className = "cat-title";
+  h.innerHTML = `${title} <span class="count">${designs.length}</span>`;
+  container.appendChild(h);
+
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  designs.forEach((d) => grid.appendChild(cardEl(d)));
+  container.appendChild(grid);
+}
+
+function cardEl(d) {
+  const card = document.createElement("button");
+  card.className = "card";
+  card.onclick = (e) => { if (!e.target.closest(".fav-btn")) openLightbox(d); };
+
+  const img = document.createElement("img");
+  img.className = "thumb";
+  img.loading = "lazy";
+  img.src = d.thumb || d.file;
+  img.alt = d.name;
+
+  const label = document.createElement("div");
+  label.className = "label";
+  const span = document.createElement("span");
+  span.textContent = d.name;
+
+  const fav = document.createElement("button");
+  fav.className = "fav-btn" + (favs.has(keyOf(d)) ? " on" : "");
+  fav.textContent = favs.has(keyOf(d)) ? "♥" : "♡";
+  fav.setAttribute("aria-label", "Save to favorites");
+  fav.onclick = (e) => { e.stopPropagation(); toggleFav(keyOf(d)); fav.classList.toggle("on"); fav.textContent = favs.has(keyOf(d)) ? "♥" : "♡"; updateFavbar(); if (showingFavs) render(); };
+
+  label.appendChild(span);
+  label.appendChild(fav);
+  card.appendChild(img);
+  card.appendChild(label);
+  return card;
+}
+
+function toggleFav(file) {
+  if (favs.has(file)) favs.delete(file); else favs.add(file);
+  try { localStorage.setItem(FAVKEY, JSON.stringify([...favs])); } catch (e) {}
+}
+
+function updateFavbar() {
+  const bar = $("favbar");
+  if (favs.size === 0) { bar.classList.remove("show"); showingFavs = false; return; }
+  bar.classList.add("show");
+  bar.textContent = showingFavs ? "← Back to all designs" : `♥ View ${favs.size} favorite${favs.size > 1 ? "s" : ""}`;
+}
+
+$("favbar").onclick = () => { showingFavs = !showingFavs; if (showingFavs) { activeCat = "all"; buildTabs(); } render(); window.scrollTo({ top: document.getElementById("gallery").offsetTop - 120 }); };
+
+function openLightbox(d) {
+  $("lb-img").src = d.full || d.file;
+  $("lb-img").alt = d.name;
+  $("lb-title").textContent = d.name;
+  $("lightbox").classList.add("open");
+}
+function closeLightbox() { $("lightbox").classList.remove("open"); }
+$("lb-close").onclick = closeLightbox;
+$("lightbox").onclick = (e) => { if (e.target.id === "lightbox") closeLightbox(); };
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+
+let t;
+$("search").addEventListener("input", (e) => {
+  clearTimeout(t);
+  t = setTimeout(() => { query = e.target.value.trim(); showingFavs = false; render(); }, 120);
+});
+
+load();
+</script>
+</body>
+</html>

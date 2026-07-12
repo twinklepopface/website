@@ -1,0 +1,99 @@
+{
+  "generated": "2026-07-12T14:39:20.579Z",
+  "categories": [
+    {
+      "id": "animals",
+      "name": "Animals",
+      "designs": [
+        {
+          "name": "Butterfly",
+          "thumb": "generated/animals/butterfly.thumb.webp",
+          "full": "generated/animals/butterfly.webp"
+        },
+        {
+          "name": "Leopard",
+          "thumb": "generated/animals/leopard.thumb.webp",
+          "full": "generated/animals/leopard.webp"
+        },
+        {
+          "name": "Puppy",
+          "thumb": "generated/animals/puppy.thumb.webp",
+          "full": "generated/animals/puppy.webp"
+        },
+        {
+          "name": "Tiger",
+          "thumb": "generated/animals/tiger.thumb.webp",
+          "full": "generated/animals/tiger.webp"
+        }
+      ]
+    },
+    {
+      "id": "halloween",
+      "name": "Halloween",
+      "designs": [
+        {
+          "name": "Pumpkin",
+          "thumb": "generated/halloween/pumpkin.thumb.webp",
+          "full": "generated/halloween/pumpkin.webp"
+        },
+        {
+          "name": "Skull",
+          "thumb": "generated/halloween/skull.thumb.webp",
+          "full": "generated/halloween/skull.webp"
+        },
+        {
+          "name": "Spooky Spider",
+          "thumb": "generated/halloween/spooky-spider.thumb.webp",
+          "full": "generated/halloween/spooky-spider.webp"
+        },
+        {
+          "name": "Witch",
+          "thumb": "generated/halloween/witch.thumb.webp",
+          "full": "generated/halloween/witch.webp"
+        }
+      ]
+    },
+    {
+      "id": "princesses",
+      "name": "Princesses",
+      "designs": [
+        {
+          "name": "Fairy Sparkle",
+          "thumb": "generated/princesses/fairy-sparkle.thumb.webp",
+          "full": "generated/princesses/fairy-sparkle.webp"
+        },
+        {
+          "name": "Rainbow Crown",
+          "thumb": "generated/princesses/rainbow-crown.thumb.webp",
+          "full": "generated/princesses/rainbow-crown.webp"
+        },
+        {
+          "name": "Snowflake Princess",
+          "thumb": "generated/princesses/snowflake-princess.thumb.webp",
+          "full": "generated/princesses/snowflake-princess.webp"
+        }
+      ]
+    },
+    {
+      "id": "superheroes",
+      "name": "Superheroes",
+      "designs": [
+        {
+          "name": "Bat Hero",
+          "thumb": "generated/superheroes/bat-hero.thumb.webp",
+          "full": "generated/superheroes/bat-hero.webp"
+        },
+        {
+          "name": "Lightning Bolt",
+          "thumb": "generated/superheroes/lightning-bolt.thumb.webp",
+          "full": "generated/superheroes/lightning-bolt.webp"
+        },
+        {
+          "name": "Spider Mask",
+          "thumb": "generated/superheroes/spider-mask.thumb.webp",
+          "full": "generated/superheroes/spider-mask.webp"
+        }
+      ]
+    }
+  ]
+}

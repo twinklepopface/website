@@ -1,0 +1,12 @@
+{
+  "name": "painted-faces-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static face-painting gallery with a build step that compresses images and generates thumbnails.",
+  "scripts": {
+    "build": "node build-manifest.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
+  }
+}
