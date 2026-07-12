@@ -40,8 +40,33 @@ const THUMB_QUALITY = 70;
 // Small words that stay lowercase in titles (unless first word)
 const MINOR = new Set(["and", "of", "the", "a", "an", "with", "in", "on"]);
 
+// Valid festival price tiers (regular/card price in dollars). A trailing
+// -12 / -17 / -22 in the filename sets the design's regular price and is
+// removed from the displayed title. Cash price is $2 less (shown site-wide).
+const PRICE_TIERS = new Set([12, 17, 22]);
+
+function parsePrice(filename) {
+  const base = filename.replace(/\.[^.]+$/, "");
+  const m = base.match(/[-_](\d{1,3})$/); // trailing -NN or _NN
+  if (m) {
+    const val = parseInt(m[1], 10);
+    if (PRICE_TIERS.has(val)) return val;
+  }
+  return null;
+}
+
+function stripPriceToken(base) {
+  // remove a trailing -NN / _NN only if it's a valid tier
+  const m = base.match(/[-_](\d{1,3})$/);
+  if (m && PRICE_TIERS.has(parseInt(m[1], 10))) {
+    return base.slice(0, m.index);
+  }
+  return base;
+}
+
 function friendlyTitle(filename) {
-  const base = filename.replace(/\.[^.]+$/, "");     // drop extension
+  let base = filename.replace(/\.[^.]+$/, "");     // drop extension
+  base = stripPriceToken(base);                    // drop trailing price tier
   const words = base
     .replace(/[-_]+/g, " ")                          // dashes/underscores -> spaces
     .replace(/([a-z])([A-Z])/g, "$1 $2")             // camelCase -> two words
@@ -139,6 +164,7 @@ async function main() {
 
       designs.push({
         name: friendlyTitle(f),
+        price: parsePrice(f),
         thumb: `generated/${dir.name}/${thumbName}`,
         full: `generated/${dir.name}/${fullName}`,
       });

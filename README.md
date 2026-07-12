@@ -15,16 +15,35 @@ them, generates thumbnails, and updates the site. Hosting is free on GitHub Page
 2. Name the file after the design. The **filename becomes the title**:
    `unicorn-rainbow.jpg` → "Unicorn Rainbow". Use dashes or underscores between
    words.
+   **To set a price**, add the price tier to the end of the name:
+   `unicorn-rainbow-17.jpg` → title "Unicorn Rainbow" with a **$17** badge.
+   Valid tiers are `-12`, `-17`, and `-22`. A photo with no price tier (e.g.
+   `unicorn-rainbow.jpg`) simply shows no badge — use that for hourly-booking
+   designs that aren't sold per-piece.
 3. To make a **new category**, create a new folder inside `designs/`
    (e.g. `designs/glitter/`) and drop photos in. It becomes a tab automatically.
 4. Commit and push. The GitHub Action runs and, for each new photo:
    - compresses a web-optimized full image,
    - creates a small square thumbnail,
-   - writes friendly titles,
+   - writes friendly titles and reads the price,
    - updates the gallery.
    Live in about a minute. You do **not** resize anything by hand.
 
 Supported image types: `.jpg .jpeg .png .webp .gif .avif`
+
+### Prices
+- Festival/market designs use three tiers set by the filename. The number in
+  the filename is the **regular (card) price**: $12 / $17 / $22.
+- **Cash saves $2** on every design ($10 / $15 / $20). This is a single global
+  rule shown on the site — you don't set cash prices per design.
+- The badge on each design shows the card price; a note explains the cash saving.
+- To change the tier prices, edit `PRICE_TIERS` near the top of
+  `build-manifest.js` AND update the numbers in the Prices section of
+  `index.html` (search for `$12`). Keep the two in sync.
+- To change the cash discount amount, edit the "$2" references in the Prices
+  section and the gallery hint in `index.html`.
+- Hourly bookings have no per-design price; that's explained in the Prices
+  section too.
 
 ### What the build step produces
 Your originals in `designs/` are never modified. Processed versions are written

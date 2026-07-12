@@ -183,6 +183,14 @@
   .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(60,40,100,.18); }
   .card:focus-visible { outline: 3px solid var(--grape); outline-offset: 2px; }
   .card .thumb { aspect-ratio: 1/1; width: 100%; object-fit: cover; background: #efe7f8; display: block; }
+  .card .thumb-wrap { position: relative; }
+  .price-badge {
+    position: absolute; top: 8px; left: 8px;
+    background: var(--grape); color: #fff;
+    font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: .85rem;
+    padding: .15rem .55rem; border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  }
   .card .label {
     padding: .6rem .7rem .7rem;
     font-family: "Baloo 2", sans-serif;
@@ -268,19 +276,24 @@
 </div>
 
 <main id="gallery">
+  <p id="price-hint" style="text-align:center;color:var(--muted);font-weight:700;font-size:.9rem;margin:.2rem 0 1rem">Prices shown are card prices — save $2 on each with cash 💵</p>
   <div id="results"></div>
   <div class="empty" id="empty" hidden>No designs match that search. Try another word!</div>
 </main>
 
 <section class="block" id="prices">
   <h2>Prices</h2>
+  <p style="font-weight:700;margin:0 0 1rem;color:var(--muted)">At festivals and markets, every design is one of three prices:</p>
   <div class="prices">
-    <div class="price-row"><span>Single design (cheek art)</span><span class="amt">$8</span></div>
-    <div class="price-row"><span>Full face</span><span class="amt">$15</span></div>
-    <div class="price-row"><span>Glitter / gem add-on</span><span class="amt">$3</span></div>
-    <div class="price-row"><span>Event booking (per hour)</span><span class="amt">from $120</span></div>
+    <div class="price-row"><span>💛 Simple designs</span><span class="amt">$12</span></div>
+    <div class="price-row"><span>💙 Standard designs</span><span class="amt">$17</span></div>
+    <div class="price-row"><span>💜 Deluxe designs</span><span class="amt">$22</span></div>
   </div>
-  <p style="color:var(--muted);font-weight:600;margin-top:1rem">Prices are a starting point — edit these to match your rates.</p>
+  <div style="background:linear-gradient(135deg,#fff6da,#ffe9c2);border-radius:16px;padding:1rem 1.2rem;margin-top:1rem;font-weight:700;color:#8a5a00">
+    💵 Save $2 when you pay with cash — that's $10, $15, or $20.
+  </div>
+  <p style="font-weight:700;margin:1.2rem 0 .3rem">Booking us by the hour?</p>
+  <p style="color:var(--muted);font-weight:600;margin:0">For parties and private events we charge by the hour instead, with no per-design pricing — get in touch below for a quote.</p>
 </section>
 
 <section class="block" id="contact">
@@ -412,6 +425,16 @@ function cardEl(d) {
   img.src = d.thumb || d.file;
   img.alt = d.name;
 
+  const thumbWrap = document.createElement("div");
+  thumbWrap.className = "thumb-wrap";
+  thumbWrap.appendChild(img);
+  if (d.price) {
+    const badge = document.createElement("span");
+    badge.className = "price-badge";
+    badge.textContent = "$" + d.price;
+    thumbWrap.appendChild(badge);
+  }
+
   const label = document.createElement("div");
   label.className = "label";
   const span = document.createElement("span");
@@ -425,7 +448,7 @@ function cardEl(d) {
 
   label.appendChild(span);
   label.appendChild(fav);
-  card.appendChild(img);
+  card.appendChild(thumbWrap);
   card.appendChild(label);
   return card;
 }
@@ -447,7 +470,7 @@ $("favbar").onclick = () => { showingFavs = !showingFavs; if (showingFavs) { act
 function openLightbox(d) {
   $("lb-img").src = d.full || d.file;
   $("lb-img").alt = d.name;
-  $("lb-title").textContent = d.name;
+  $("lb-title").textContent = d.price ? `${d.name} · $${d.price}` : d.name;
   $("lightbox").classList.add("open");
 }
 function closeLightbox() { $("lightbox").classList.remove("open"); }
