@@ -222,10 +222,13 @@
     background: #fff; color: var(--ink); cursor: pointer;
   }
   /* Hourly mode: hide all price-related UI */
-  body.hide-pricing .price-badge,
-  body.hide-pricing #price-hint,
-  body.hide-pricing #price-controls,
-  body.hide-pricing #prices { display: none !important; }
+  .price-badge, #price-hint, #price-controls, #prices { display: none; }
+  body.show-prices .price-badge { display: inline-block; }
+  body.show-prices #price-hint { display: block; }
+  body.show-prices #price-controls { display: flex; }
+  body.show-prices #prices { display: block; }
+  .lb-price { display: none; }
+  body.show-prices .lb-price { display: block; }
 
   /* Gallery */
   main { max-width: 1100px; margin: 0 auto; padding: 1.4rem 1rem 3rem; }
@@ -298,7 +301,6 @@
   .lb-price { font-family: "Baloo 2", sans-serif; font-weight: 700; }
   .lb-price .card-price { color: var(--grape-dark); font-size: 1.05rem; }
   .lb-price .cash-price { color: var(--mint); font-size: .95rem; display: block; }
-  body.hide-pricing .lb-price { display: none; }
   .lb-close { border: none; background: var(--cream); width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: var(--ink); }
 
   /* Static sections */
@@ -331,8 +333,8 @@
   .social-icon:active { transform: scale(.94); }
   .social-icon:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
   .view-pricing-wrap { text-align: center; padding: 0 1rem 1rem; }
-  /* The View pricing link only makes sense when pricing is currently hidden */
-  body:not(.hide-pricing) .view-pricing-wrap { display: none; }
+  /* The View pricing link shows only when prices are currently off */
+  body.show-prices .view-pricing-wrap { display: none; }
   footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--muted); font-weight: 600; font-size: .9rem; }
   body.on-landing #site-footer { display: none; }
 
@@ -442,7 +444,7 @@
 </section>
 
 <div class="view-pricing-wrap" id="view-pricing-wrap">
-  <a href="?pricing" class="btn btn-grape">💰 View pricing</a>
+  <button class="btn btn-grape" id="view-pricing-btn">💰 View pricing</button>
 </div>
 
 <div class="gallery-book-cta">
@@ -508,13 +510,11 @@ let query = "";
 let showingFavs = false;
 let priceFilter = null;   // null = all prices; otherwise a number (12/17/22)
 let sortMode = "default";
-const SHOW_PRICING = new URLSearchParams(location.search).has("pricing");
 
 const $ = (id) => document.getElementById(id);
 const keyOf = (d) => d.full || d.file; // stable id for favorites
 
 async function load() {
-  if (!SHOW_PRICING) document.body.classList.add("hide-pricing");
   try {
     const res = await fetch("assets/designs.json", { cache: "no-store" });
     if (!res.ok) throw new Error("no manifest");
@@ -526,11 +526,13 @@ async function load() {
   buildPriceControls();
   render();
 
+  // Capture the entry hash BEFORE we seed history (replaceState overwrites it).
+  const h = location.hash;
   // Seed history so Back has a landing state to return to.
   history.replaceState({ screen: "landing" }, "", "#");
-  // Honor a direct link to a specific screen.
-  const h = location.hash;
+  // Honor a direct link to a specific screen (e.g. a QR code to #pricing).
   if (h === "#browse") { setScreen("gallery"); history.pushState({ screen: "gallery" }, "", "#browse"); }
+  else if (h === "#pricing") { setScreen("pricing"); history.pushState({ screen: "pricing" }, "", "#pricing"); }
   else if (h === "#book") { setScreen("book"); history.pushState({ screen: "book" }, "", "#book"); }
 }
 
@@ -541,24 +543,25 @@ function availablePrices() {
 }
 
 function buildPriceControls() {
-  // When pricing is hidden the whole bar is hidden by CSS; skip building.
-  if (!SHOW_PRICING) return;
+  // Visibility is controlled by the body.show-prices CSS rule.
+  // Here we just build the chips (or clear them if too few prices).
   const prices = availablePrices();
   const wrap = $("price-filters");
   wrap.innerHTML = "";
-  if (prices.length < 2) { $("price-controls").style.display = "none"; return; }
-  $("price-controls").style.display = "flex";
-
-  const mkChip = (label, val) => {
-    const b = document.createElement("button");
-    b.className = "price-chip";
-    b.textContent = label;
-    b.setAttribute("aria-pressed", priceFilter === val ? "true" : "false");
-    b.onclick = () => { priceFilter = (priceFilter === val ? null : val); buildPriceControls(); render(); };
-    return b;
-  };
-  wrap.appendChild(mkChip("All prices", null));
-  prices.forEach((p) => wrap.appendChild(mkChip("$" + p, p)));
+  // If there aren't at least two distinct prices, leave filters empty
+  // (the sort control still works); nothing else to do.
+  if (prices.length >= 2) {
+    const mkChip = (label, val) => {
+      const b = document.createElement("button");
+      b.className = "price-chip";
+      b.textContent = label;
+      b.setAttribute("aria-pressed", priceFilter === val ? "true" : "false");
+      b.onclick = () => { priceFilter = (priceFilter === val ? null : val); buildPriceControls(); render(); };
+      return b;
+    };
+    wrap.appendChild(mkChip("All prices", null));
+    prices.forEach((p) => wrap.appendChild(mkChip("$" + p, p)));
+  }
 
   $("sort-select").value = sortMode;
   $("sort-select").onchange = (e) => { sortMode = e.target.value; render(); };
@@ -623,8 +626,9 @@ function render() {
 
 function applyPriceFilterSort(list) {
   let out = list;
-  if (SHOW_PRICING && priceFilter) out = out.filter((d) => d.price === priceFilter);
-  if (SHOW_PRICING && sortMode !== "default") {
+  const pricingOn = document.body.classList.contains("show-prices");
+  if (pricingOn && priceFilter) out = out.filter((d) => d.price === priceFilter);
+  if (pricingOn && sortMode !== "default") {
     out = [...out].sort((a, b) => {
       if (sortMode === "name") return a.name.localeCompare(b.name);
       const pa = a.price == null ? Infinity : a.price;
@@ -731,12 +735,18 @@ $("search").addEventListener("input", (e) => {
   t = setTimeout(() => { query = e.target.value.trim(); showingFavs = false; render(); }, 120);
 });
 
-// ---- Screen switching (landing / gallery / book) ----
+// ---- Screen switching (landing / gallery / pricing / book) ----
+// "gallery" = designs with NO pricing. "pricing" = same designs WITH pricing.
 function setScreen(name) {
+  const galleryLike = (name === "gallery" || name === "pricing");
   $("landing-screen").hidden = name !== "landing";
-  $("gallery-screen").hidden = name !== "gallery";
+  $("gallery-screen").hidden = !galleryLike;
   $("book-screen").hidden = name !== "book";
   document.body.classList.toggle("on-landing", name === "landing");
+  document.body.classList.toggle("show-prices", name === "pricing");
+  // The top-bar back button adapts: from pricing it returns to designs.
+  const backBtn = $("back-btn");
+  if (backBtn) backBtn.textContent = name === "pricing" ? "← Back to designs" : "← Back";
   window.scrollTo(0, 0);
 }
 function go(name, hash) {
@@ -747,6 +757,7 @@ function go(name, hash) {
 $("browse-btn").onclick = () => go("gallery", "#browse");
 $("book-btn").onclick = () => go("book", "#book");
 $("gallery-book-btn").onclick = () => go("book", "#book");
+$("view-pricing-btn").onclick = () => go("pricing", "#pricing");
 $("back-btn").onclick = () => history.back();
 $("book-back-btn").onclick = () => history.back();
 
