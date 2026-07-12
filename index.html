@@ -333,6 +333,7 @@
   /* The View pricing link only makes sense when pricing is currently hidden */
   body:not(.hide-pricing) .view-pricing-wrap { display: none; }
   footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--muted); font-weight: 600; font-size: .9rem; }
+  body.on-landing #site-footer { display: none; }
 
   .favbar {
     position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
@@ -367,7 +368,7 @@
   .gallery-book-cta { text-align: center; padding: 1.5rem 1rem 2.5rem; }
 </style>
 </head>
-<body>
+<body class="on-landing">
 <div id="landing-screen">
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
@@ -478,7 +479,7 @@
 </section>
 </div><!-- /book-screen -->
 
-<footer>© 2026 Twinkle Pop Face</footer>
+<footer id="site-footer">© 2026 Twinkle Pop Face</footer>
 
 <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Design preview">
   <div class="lb-inner">
@@ -734,6 +735,7 @@ function setScreen(name) {
   $("landing-screen").hidden = name !== "landing";
   $("gallery-screen").hidden = name !== "gallery";
   $("book-screen").hidden = name !== "book";
+  document.body.classList.toggle("on-landing", name === "landing");
   window.scrollTo(0, 0);
 }
 function go(name, hash) {
