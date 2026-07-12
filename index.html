@@ -156,6 +156,31 @@
   .tab[aria-selected="true"] { background: var(--grape); color: #fff; }
   .tab:active { transform: scale(.96); }
 
+  .price-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: .6rem; max-width: 900px; margin: .55rem auto 0; flex-wrap: wrap;
+  }
+  .price-filters { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .price-chip {
+    border: 2px solid rgba(123,75,214,.2); background: #fff; color: var(--ink);
+    font-family: "Baloo 2", sans-serif; font-weight: 600; font-size: .9rem;
+    padding: .35rem .85rem; border-radius: 999px; cursor: pointer; white-space: nowrap;
+    transition: transform .1s;
+  }
+  .price-chip[aria-pressed="true"] { background: var(--mango); color: #fff; border-color: var(--mango); }
+  .price-chip:active { transform: scale(.95); }
+  .sort-wrap { display: flex; align-items: center; gap: .4rem; font-family: "Baloo 2"; font-weight: 600; font-size: .9rem; color: var(--muted); }
+  #sort-select {
+    font-family: "Nunito", sans-serif; font-weight: 600; font-size: .9rem;
+    padding: .35rem .6rem; border-radius: 10px; border: 2px solid rgba(123,75,214,.2);
+    background: #fff; color: var(--ink); cursor: pointer;
+  }
+  /* Hourly mode: hide all price-related UI */
+  body.hide-pricing .price-badge,
+  body.hide-pricing #price-hint,
+  body.hide-pricing #price-controls,
+  body.hide-pricing #prices { display: none !important; }
+
   /* Gallery */
   main { max-width: 1100px; margin: 0 auto; padding: 1.4rem 1rem 3rem; }
   .cat-title {
@@ -273,6 +298,18 @@
     <input id="search" type="search" placeholder="Search designs — tiger, unicorn, spider…" autocomplete="off" />
   </div>
   <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="price-controls" id="price-controls">
+    <div class="price-filters" id="price-filters" role="group" aria-label="Filter by price"></div>
+    <label class="sort-wrap">
+      <span>Sort</span>
+      <select id="sort-select" aria-label="Sort designs">
+        <option value="default">Default</option>
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </label>
+  </div>
 </div>
 
 <main id="gallery">
@@ -326,11 +363,15 @@ try { favs = new Set(JSON.parse(localStorage.getItem(FAVKEY) || "[]")); } catch 
 let activeCat = "all";
 let query = "";
 let showingFavs = false;
+let priceFilter = null;   // null = all prices; otherwise a number (12/17/22)
+let sortMode = "default";
+const SHOW_PRICING = new URLSearchParams(location.search).has("pricing");
 
 const $ = (id) => document.getElementById(id);
 const keyOf = (d) => d.full || d.file; // stable id for favorites
 
 async function load() {
+  if (!SHOW_PRICING) document.body.classList.add("hide-pricing");
   try {
     const res = await fetch("assets/designs.json", { cache: "no-store" });
     if (!res.ok) throw new Error("no manifest");
@@ -339,7 +380,38 @@ async function load() {
     DATA = { categories: [] };
   }
   buildTabs();
+  buildPriceControls();
   render();
+}
+
+function availablePrices() {
+  const set = new Set();
+  allDesigns().forEach((d) => { if (d.price) set.add(d.price); });
+  return [...set].sort((a, b) => a - b);
+}
+
+function buildPriceControls() {
+  // When pricing is hidden the whole bar is hidden by CSS; skip building.
+  if (!SHOW_PRICING) return;
+  const prices = availablePrices();
+  const wrap = $("price-filters");
+  wrap.innerHTML = "";
+  if (prices.length < 2) { $("price-controls").style.display = "none"; return; }
+  $("price-controls").style.display = "flex";
+
+  const mkChip = (label, val) => {
+    const b = document.createElement("button");
+    b.className = "price-chip";
+    b.textContent = label;
+    b.setAttribute("aria-pressed", priceFilter === val ? "true" : "false");
+    b.onclick = () => { priceFilter = (priceFilter === val ? null : val); buildPriceControls(); render(); };
+    return b;
+  };
+  wrap.appendChild(mkChip("All prices", null));
+  prices.forEach((p) => wrap.appendChild(mkChip("$" + p, p)));
+
+  $("sort-select").value = sortMode;
+  $("sort-select").onchange = (e) => { sortMode = e.target.value; render(); };
 }
 
 function buildTabs() {
@@ -371,7 +443,8 @@ function render() {
   let cats = DATA.categories;
 
   if (showingFavs) {
-    const favDesigns = allDesigns().filter((d) => favs.has(keyOf(d)));
+    let favDesigns = allDesigns().filter((d) => favs.has(keyOf(d)));
+    favDesigns = applyPriceFilterSort(favDesigns);
     renderGroup(results, "★ Favorites", favDesigns);
     $("empty").hidden = favDesigns.length > 0;
     updateFavbar();
@@ -384,6 +457,7 @@ function render() {
   cats.forEach((c) => {
     let designs = c.designs.map((d) => ({ ...d, cat: c.id, catName: c.name }));
     if (query) designs = designs.filter((d) => match(d));
+    designs = applyPriceFilterSort(designs);
     if (designs.length) {
       renderGroup(results, c.name, designs);
       total += designs.length;
@@ -395,6 +469,20 @@ function render() {
     results.innerHTML = '<div class="empty">Your gallery is empty. Add images to the <b>designs/</b> folders and push to GitHub — they\'ll appear here automatically.</div>';
   }
   updateFavbar();
+}
+
+function applyPriceFilterSort(list) {
+  let out = list;
+  if (SHOW_PRICING && priceFilter) out = out.filter((d) => d.price === priceFilter);
+  if (SHOW_PRICING && sortMode !== "default") {
+    out = [...out].sort((a, b) => {
+      if (sortMode === "name") return a.name.localeCompare(b.name);
+      const pa = a.price == null ? Infinity : a.price;
+      const pb = b.price == null ? Infinity : b.price;
+      return sortMode === "price-asc" ? pa - pb : pb - pa;
+    });
+  }
+  return out;
 }
 
 function match(d) {

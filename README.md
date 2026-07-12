@@ -37,6 +37,8 @@ Supported image types: `.jpg .jpeg .png .webp .gif .avif`
 - **Cash saves $2** on every design ($10 / $15 / $20). This is a single global
   rule shown on the site — you don't set cash prices per design.
 - The badge on each design shows the card price; a note explains the cash saving.
+- Customers can **filter by price** ($12 / $17 / $22) and **sort** (price low→high,
+  high→low, or name). These appear automatically when designs have prices.
 - To change the tier prices, edit `PRICE_TIERS` near the top of
   `build-manifest.js` AND update the numbers in the Prices section of
   `index.html` (search for `$12`). Keep the two in sync.
@@ -44,6 +46,26 @@ Supported image types: `.jpg .jpeg .png .webp .gif .avif`
   section and the gallery hint in `index.html`.
 - Hourly bookings have no per-design price; that's explained in the Prices
   section too.
+
+### Two modes: pricing off (default) vs on
+The site has two modes, controlled by the web address — no settings to change:
+- **Default (plain address):** `twinklepopface.com` HIDES all pricing (badges,
+  the price filter/sort, the price hint, and the Prices section), showing just
+  the design gallery and booking info. This is the default because prices aren't
+  always relevant — e.g. at hourly-paid events.
+- **Pricing mode:** add `?pricing` to the address —
+  `twinklepopface.com/?pricing`. This shows prices, badges, the price
+  filter/sort, and the Prices section. Use this at markets and festivals where
+  customers pay per design.
+
+**Recommended setup:** make TWO QR codes — one for `twinklepopface.com/?pricing`
+(markets/festivals) and one for `twinklepopface.com` (hourly gigs, no prices).
+Bring whichever matches the event. Any free QR-code generator works; just paste
+the matching address.
+
+(Note: this uses `?pricing` rather than `/pricing` because GitHub Pages serves
+static files — a query parameter is the reliable way to do this on a static
+site, and reads almost the same.)
 
 ### What the build step produces
 Your originals in `designs/` are never modified. Processed versions are written
