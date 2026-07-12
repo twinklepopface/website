@@ -92,37 +92,39 @@
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  /* Shine sweep: solid text with a translucent glint band swept across via
-     transform (reliable on iOS Safari, unlike animating background-clip:text). */
-  .shine-text {
+  /* Shimmer: base text is solid ink. A duplicate (::before) is clipped to a
+     bright gradient and slid across with transform, so ONLY the letters shine.
+     Using transform (not background-position) keeps it working on iOS Safari. */
+  .spark-static { display: inline-block; }
+  .shimmer {
     position: relative;
     display: inline-block;
     color: var(--ink);
-    overflow: hidden;
   }
-  .glint {
+  .shimmer::before {
+    content: attr(data-text);
     position: absolute;
-    top: 0; bottom: 0;
-    left: -40%;
-    width: 35%;
+    left: 0; top: 0;
+    width: 100%;
     pointer-events: none;
+    color: transparent;
     background: linear-gradient(
       100deg,
-      transparent 0%,
-      rgba(255,255,255,.15) 35%,
-      rgba(255,255,255,.85) 50%,
-      rgba(217,179,255,.6) 60%,
-      transparent 100%
+      transparent 30%,
+      rgba(255,255,255,.9) 45%,
+      #f0d9ff 50%,
+      rgba(255,255,255,.9) 55%,
+      transparent 70%
     );
-    transform: translateX(0) skewX(-18deg);
-    animation: glint-sweep 2.4s ease-in-out 1s 1 both;
-    opacity: 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateX(-110%);
+    animation: shimmer-slide 2.4s ease-in-out 1s 1 both;
   }
-  @keyframes glint-sweep {
-    0%   { transform: translateX(0) skewX(-18deg); opacity: 0; }
-    10%  { opacity: 1; }
-    90%  { opacity: 1; }
-    100% { transform: translateX(430%) skewX(-18deg); opacity: 0; }
+  @keyframes shimmer-slide {
+    from { transform: translateX(-110%); }
+    to   { transform: translateX(110%); }
   }
   /* Little sparkle bursts pop in and out at a few spots, once */
   .burst {
@@ -435,7 +437,7 @@
   <img class="hero-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
   <h1 class="visually-hidden">Twinkle Pop Face — Face Painting</h1>
   <p class="tag"><span class="tag-main">
-    <span class="shine-text">✨ Add sparkles to those smiles ✨<span class="glint" aria-hidden="true"></span></span>
+    <span class="spark-static" aria-hidden="true">✨</span><span class="shimmer" data-text="Add sparkles to those smiles">Add sparkles to those smiles</span><span class="spark-static" aria-hidden="true">✨</span>
     <span class="burst burst-1" aria-hidden="true">✦</span>
     <span class="burst burst-2" aria-hidden="true">✧</span>
     <span class="burst burst-3" aria-hidden="true">✦</span>
