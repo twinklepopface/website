@@ -92,25 +92,37 @@
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  /* Shine sweep: a bright highlight travels across the text once */
+  /* Shine sweep: solid text with a translucent glint band swept across via
+     transform (reliable on iOS Safari, unlike animating background-clip:text). */
   .shine-text {
+    position: relative;
+    display: inline-block;
+    color: var(--ink);
+    overflow: hidden;
+  }
+  .glint {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: -40%;
+    width: 35%;
+    pointer-events: none;
     background: linear-gradient(
       100deg,
-      var(--ink) 0%, var(--ink) 38%,
-      #fff 47%, #d9b3ff 50%, #fff 53%,
-      var(--ink) 62%, var(--ink) 100%
+      transparent 0%,
+      rgba(255,255,255,.15) 35%,
+      rgba(255,255,255,.85) 50%,
+      rgba(217,179,255,.6) 60%,
+      transparent 100%
     );
-    background-size: 250% 100%;
-    background-position: 120% 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: shine-sweep 1.4s ease-in-out .55s 1 both;
+    transform: translateX(0) skewX(-18deg);
+    animation: glint-sweep 2.4s ease-in-out 1s 1 both;
+    opacity: 0;
   }
-  @keyframes shine-sweep {
-    from { background-position: 120% 0; }
-    to   { background-position: -40% 0; }
+  @keyframes glint-sweep {
+    0%   { transform: translateX(0) skewX(-18deg); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateX(430%) skewX(-18deg); opacity: 0; }
   }
   /* Little sparkle bursts pop in and out at a few spots, once */
   .burst {
@@ -121,9 +133,9 @@
     pointer-events: none;
     text-shadow: 0 0 6px rgba(255,200,80,.8);
   }
-  .burst-1 { top: -.3em; left: 12%; animation: burst 1s ease-in-out 1.0s 1 both; }
-  .burst-2 { top: .55em; left: 46%; animation: burst 1s ease-in-out 1.35s 1 both; }
-  .burst-3 { top: -.2em; left: 82%; animation: burst 1s ease-in-out 1.7s 1 both; }
+  .burst-1 { top: -.3em; left: 12%; animation: burst 1.5s ease-in-out 1.4s 1 both; }
+  .burst-2 { top: .55em; left: 46%; animation: burst 1.5s ease-in-out 2.0s 1 both; }
+  .burst-3 { top: -.2em; left: 82%; animation: burst 1.5s ease-in-out 2.6s 1 both; }
   @keyframes burst {
     0%   { opacity: 0; transform: scale(0) rotate(0deg); }
     45%  { opacity: 1; transform: scale(1.25) rotate(25deg); }
@@ -423,7 +435,7 @@
   <img class="hero-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
   <h1 class="visually-hidden">Twinkle Pop Face — Face Painting</h1>
   <p class="tag"><span class="tag-main">
-    <span class="shine-text">✨ Add sparkles to those smiles ✨</span>
+    <span class="shine-text">✨ Add sparkles to those smiles ✨<span class="glint" aria-hidden="true"></span></span>
     <span class="burst burst-1" aria-hidden="true">✦</span>
     <span class="burst burst-2" aria-hidden="true">✧</span>
     <span class="burst burst-3" aria-hidden="true">✦</span>
