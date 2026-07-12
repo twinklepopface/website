@@ -38,6 +38,18 @@
   a { color: inherit; }
 
   /* Header / hero */
+  #landing-screen {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+  #landing-screen .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   header.hero {
     position: relative;
     overflow: hidden;
@@ -62,12 +74,45 @@
     clip: rect(0 0 0 0); white-space: nowrap;
   }
   .hero p.tag {
-    font-size: clamp(1rem, 2.6vw, 1.25rem);
-    margin: .2rem auto 0;
-    max-width: 34ch;
-    color: var(--muted);
-    font-weight: 700;
+    font-size: clamp(1.15rem, 3vw, 1.4rem);
+    margin: .4rem auto 0;
+    max-width: 30ch;
+    color: var(--ink);
+    font-weight: 800;
+    font-family: "Baloo 2", sans-serif;
+    line-height: 1.35;
   }
+  .hero .tag-sub {
+    display: block;
+    margin-top: .5rem;
+    font-size: clamp(.9rem, 2.2vw, 1rem);
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .landing-footer {
+    background:
+      radial-gradient(circle at 75% 92%, rgba(75,180,230,.18), transparent 46%),
+      linear-gradient(170deg, #f3ecfb 0%, #f3ecfb 100%);
+    text-align: center;
+    padding: 1.4rem 1rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .9rem;
+  }
+  .landing-social { display: flex; gap: .7rem; align-items: center; }
+  .landing-social .social-prompt-dark { font-family: "Baloo 2"; font-weight: 700; color: var(--muted); font-size: .95rem; }
+  .landing-social a {
+    color: var(--grape); background: rgba(123,75,214,.1);
+    width: 42px; height: 42px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform .12s, background .12s;
+  }
+  .landing-social a:hover { background: rgba(123,75,214,.2); transform: translateY(-2px); }
+  .landing-social a:active { transform: scale(.94); }
+  .landing-copyright { color: var(--muted); font-weight: 600; font-size: .85rem; }
   .hero-cta {
     margin-top: 1.4rem;
     display: inline-flex;
@@ -319,6 +364,7 @@
   .topbar-logo { height: 34px; width: auto; }
   /* When the gallery topbar is present, the controls bar sticks below it */
   #gallery-screen .controls { top: 51px; }
+  .gallery-book-cta { text-align: center; padding: 1.5rem 1rem 2.5rem; }
 </style>
 </head>
 <body>
@@ -326,12 +372,24 @@
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
   <h1 class="visually-hidden">Twinkle Pop Face — Face Painting</h1>
-  <p class="tag">Bright, sparkly face painting for parties, festivals, and events.</p>
+  <p class="tag">✨ Add sparkles to those smiles ✨<br><span class="tag-sub">Face painting service in St. John's and surrounding areas in NL, Canada</span></p>
   <div class="hero-cta">
     <button class="btn btn-grape" id="browse-btn">Browse designs</button>
     <button class="btn btn-coral" id="book-btn">Book us</button>
   </div>
 </header>
+<div class="landing-footer">
+  <div class="landing-social">
+    <span class="social-prompt-dark">Follow us:</span>
+    <a href="https://www.facebook.com/TwinklePopFace" target="_blank" rel="noopener" aria-label="Follow us on Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11.03 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+    </a>
+    <a href="https://instagram.com/twinklepopface" target="_blank" rel="noopener" aria-label="Follow us on Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12C21.33 1.36 20.66.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-10.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+    </a>
+  </div>
+  <div class="landing-copyright">© 2026 Twinkle Pop Face</div>
+</div>
 </div>
 
 <div id="gallery-screen" hidden>
@@ -381,6 +439,20 @@
   <p style="color:var(--muted);font-weight:600;margin:0">For parties and private events we charge by the hour instead, with no per-design pricing — get in touch below for a quote.</p>
 </section>
 
+<div class="view-pricing-wrap" id="view-pricing-wrap">
+  <a href="?pricing" class="btn btn-grape">💰 View pricing</a>
+</div>
+
+<div class="gallery-book-cta">
+  <button class="btn btn-coral" id="gallery-book-btn">📅 Book us for your event</button>
+</div>
+</div><!-- /gallery-screen -->
+
+<div id="book-screen" hidden>
+<div class="gallery-topbar">
+  <button class="back-btn" id="book-back-btn" aria-label="Back">← Back</button>
+  <img class="topbar-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
+</div>
 <section class="block" id="contact">
   <div class="contact-card">
     <h2 style="margin-top:0">Book us for your event</h2>
@@ -404,13 +476,9 @@
     </div>
   </div>
 </section>
-
-<div class="view-pricing-wrap" id="view-pricing-wrap">
-  <a href="?pricing" class="btn btn-grape">💰 View pricing</a>
-</div>
+</div><!-- /book-screen -->
 
 <footer>© 2026 Twinkle Pop Face</footer>
-</div><!-- /gallery-screen -->
 
 <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Design preview">
   <div class="lb-inner">
@@ -457,13 +525,11 @@ async function load() {
   render();
 
   // Seed history so Back has a landing state to return to.
-  history.replaceState({ screen: "landing" }, "", location.hash === "#browse" ? "#browse" : "#");
-  // If someone opened a link straight to the gallery, show it.
-  if (location.hash === "#browse") {
-    $("landing-screen").hidden = true;
-    $("gallery-screen").hidden = false;
-    history.pushState({ screen: "gallery" }, "", "#browse");
-  }
+  history.replaceState({ screen: "landing" }, "", "#");
+  // Honor a direct link to a specific screen.
+  const h = location.hash;
+  if (h === "#browse") { setScreen("gallery"); history.pushState({ screen: "gallery" }, "", "#browse"); }
+  else if (h === "#book") { setScreen("book"); history.pushState({ screen: "book" }, "", "#book"); }
 }
 
 function availablePrices() {
@@ -663,34 +729,28 @@ $("search").addEventListener("input", (e) => {
   t = setTimeout(() => { query = e.target.value.trim(); showingFavs = false; render(); }, 120);
 });
 
-// ---- Screen switching (landing <-> gallery) ----
-function showGallery(push) {
-  $("landing-screen").hidden = true;
-  $("gallery-screen").hidden = false;
+// ---- Screen switching (landing / gallery / book) ----
+function setScreen(name) {
+  $("landing-screen").hidden = name !== "landing";
+  $("gallery-screen").hidden = name !== "gallery";
+  $("book-screen").hidden = name !== "book";
   window.scrollTo(0, 0);
-  if (push) history.pushState({ screen: "gallery" }, "", "#browse");
 }
-function showLanding(push) {
-  $("gallery-screen").hidden = true;
-  $("landing-screen").hidden = false;
-  window.scrollTo(0, 0);
-  if (push) history.pushState({ screen: "landing" }, "", "#");
-}
-function scrollToContact() {
-  showGallery(true);
-  setTimeout(() => { $("contact").scrollIntoView({ behavior: "smooth" }); }, 40);
+function go(name, hash) {
+  setScreen(name);
+  history.pushState({ screen: name }, "", hash);
 }
 
-$("browse-btn").onclick = () => showGallery(true);
-$("book-btn").onclick = () => scrollToContact();
+$("browse-btn").onclick = () => go("gallery", "#browse");
+$("book-btn").onclick = () => go("book", "#book");
+$("gallery-book-btn").onclick = () => go("book", "#book");
 $("back-btn").onclick = () => history.back();
+$("book-back-btn").onclick = () => history.back();
 
 // Make the phone/browser Back button move between screens reliably
 window.addEventListener("popstate", (e) => {
   const screen = (e.state && e.state.screen) || "landing";
-  if (screen === "gallery") { $("landing-screen").hidden = true; $("gallery-screen").hidden = false; }
-  else { $("gallery-screen").hidden = true; $("landing-screen").hidden = false; }
-  window.scrollTo(0, 0);
+  setScreen(screen);
 });
 
 load();
