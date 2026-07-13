@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-12T18:38:44.158Z",
+  "generated": "2026-07-13T01:08:09.010Z",
   "categories": [
     {
       "id": "animals",
@@ -10,12 +10,6 @@
           "price": 12,
           "thumb": "generated/animals/butterfly-12.thumb.webp",
           "full": "generated/animals/butterfly-12.webp"
-        },
-        {
-          "name": "Leopard",
-          "price": 17,
-          "thumb": "generated/animals/leopard-17.thumb.webp",
-          "full": "generated/animals/leopard-17.webp"
         },
         {
           "name": "Puppy",
@@ -32,80 +26,46 @@
       ]
     },
     {
-      "id": "halloween",
-      "name": "Halloween",
+      "id": "seasonal",
+      "name": "Seasonal",
       "designs": [
+        {
+          "name": "Santa",
+          "price": 17,
+          "thumb": "generated/seasonal/christmas/santa-17.thumb.webp",
+          "full": "generated/seasonal/christmas/santa-17.webp",
+          "sub": "christmas"
+        },
+        {
+          "name": "Snowman",
+          "price": 12,
+          "thumb": "generated/seasonal/christmas/snowman-12.thumb.webp",
+          "full": "generated/seasonal/christmas/snowman-12.webp",
+          "sub": "christmas"
+        },
         {
           "name": "Pumpkin",
           "price": 12,
-          "thumb": "generated/halloween/pumpkin-12.thumb.webp",
-          "full": "generated/halloween/pumpkin-12.webp"
+          "thumb": "generated/seasonal/halloween/pumpkin-12.thumb.webp",
+          "full": "generated/seasonal/halloween/pumpkin-12.webp",
+          "sub": "halloween"
         },
         {
-          "name": "Skull",
-          "price": 17,
-          "thumb": "generated/halloween/skull-17.thumb.webp",
-          "full": "generated/halloween/skull-17.webp"
-        },
-        {
-          "name": "Spooky Spider",
+          "name": "Spooky Ghost",
           "price": 22,
-          "thumb": "generated/halloween/spooky-spider-22.thumb.webp",
-          "full": "generated/halloween/spooky-spider-22.webp"
-        },
-        {
-          "name": "Witch",
-          "price": 22,
-          "thumb": "generated/halloween/witch-22.thumb.webp",
-          "full": "generated/halloween/witch-22.webp"
+          "thumb": "generated/seasonal/halloween/spooky-ghost-22.thumb.webp",
+          "full": "generated/seasonal/halloween/spooky-ghost-22.webp",
+          "sub": "halloween"
         }
-      ]
-    },
-    {
-      "id": "princesses",
-      "name": "Princesses",
-      "designs": [
+      ],
+      "subcategories": [
         {
-          "name": "Fairy Sparkle",
-          "price": 22,
-          "thumb": "generated/princesses/fairy-sparkle-22.thumb.webp",
-          "full": "generated/princesses/fairy-sparkle-22.webp"
+          "id": "christmas",
+          "name": "Christmas"
         },
         {
-          "name": "Rainbow Crown",
-          "price": 17,
-          "thumb": "generated/princesses/rainbow-crown-17.thumb.webp",
-          "full": "generated/princesses/rainbow-crown-17.webp"
-        },
-        {
-          "name": "Snowflake Princess",
-          "price": 17,
-          "thumb": "generated/princesses/snowflake-princess-17.thumb.webp",
-          "full": "generated/princesses/snowflake-princess-17.webp"
-        }
-      ]
-    },
-    {
-      "id": "superheroes",
-      "name": "Superheroes",
-      "designs": [
-        {
-          "name": "Bat Hero",
-          "price": 17,
-          "thumb": "generated/superheroes/bat-hero-17.thumb.webp",
-          "full": "generated/superheroes/bat-hero-17.webp"
-        },
-        {
-          "name": "Lightning Bolt",
-          "price": 12,
-          "thumb": "generated/superheroes/lightning-bolt-12.thumb.webp",
-          "full": "generated/superheroes/lightning-bolt-12.webp"
-        },
-        {
-          "name": "Spider Mask",
-          "price": 22,
-          "thumb": "generated/superheroes/spider-mask-22.thumb.webp",
-          "full": "generated/superheroes/spider-mask-22.webp"
+          "id": "halloween",
+          "name": "Halloween"
         }
       ]
     }

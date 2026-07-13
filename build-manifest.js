@@ -136,18 +136,21 @@ async function main() {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const categories = [];
-  let processed = 0;
-  let reused = 0;
+  const counters = { processed: 0, reused: 0 };
 
-  for (const dir of categoryDirs) {
-    const srcDir = path.join(DESIGNS_DIR, dir.name);
-    const genDir = path.join(GEN_DIR, dir.name);
-    fs.mkdirSync(genDir, { recursive: true });
+  // Process every image file in one folder; returns an array of design objects.
+  // `relDir` is the path under designs/ (e.g. "seasonal" or "seasonal/christmas").
+  async function processFolder(relDir, subId) {
+    const srcDir = path.join(DESIGNS_DIR, relDir);
+    const genDir = path.join(GEN_DIR, relDir);
 
     const files = fs
-      .readdirSync(srcDir)
-      .filter((f) => IMAGE_EXT.has(path.extname(f).toLowerCase()))
+      .readdirSync(srcDir, { withFileTypes: true })
+      .filter((e) => e.isFile() && IMAGE_EXT.has(path.extname(e.name).toLowerCase()))
+      .map((e) => e.name)
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+    if (files.length) fs.mkdirSync(genDir, { recursive: true });
 
     const designs = [];
     for (const f of files) {
@@ -160,18 +163,49 @@ async function main() {
 
       const wasStale = isStale(srcPath, outFull) || isStale(srcPath, outThumb);
       await processImage(srcPath, outFull, outThumb);
-      if (wasStale) processed++; else reused++;
+      if (wasStale) counters.processed++; else counters.reused++;
 
-      designs.push({
+      const design = {
         name: friendlyTitle(f),
         price: parsePrice(f),
-        thumb: `generated/${dir.name}/${thumbName}`,
-        full: `generated/${dir.name}/${fullName}`,
-      });
+        thumb: `generated/${relDir}/${thumbName}`,
+        full: `generated/${relDir}/${fullName}`,
+      };
+      if (subId) design.sub = subId; // tag with subcategory id when applicable
+      designs.push(design);
+    }
+    return designs;
+  }
+
+  for (const dir of categoryDirs) {
+    const catId = dir.name;
+    const catSrc = path.join(DESIGNS_DIR, catId);
+
+    // 1) Images sitting directly in the category folder (no subcategory)
+    const directDesigns = await processFolder(catId, null);
+
+    // 2) Subcategory folders inside this category
+    const subDirs = fs
+      .readdirSync(catSrc, { withFileTypes: true })
+      .filter((e) => e.isDirectory())
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const subcategories = [];
+    let subDesigns = [];
+    for (const sd of subDirs) {
+      const subId = sd.name;
+      const ds = await processFolder(path.join(catId, subId), subId);
+      if (ds.length) {
+        subcategories.push({ id: subId, name: titleCaseFolder(subId) });
+        subDesigns = subDesigns.concat(ds);
+      }
     }
 
-    if (designs.length) {
-      categories.push({ id: dir.name, name: titleCaseFolder(dir.name), designs });
+    const allDesigns = directDesigns.concat(subDesigns);
+    if (allDesigns.length) {
+      const cat = { id: catId, name: titleCaseFolder(catId), designs: allDesigns };
+      if (subcategories.length) cat.subcategories = subcategories;
+      categories.push(cat);
     }
   }
 
@@ -184,7 +218,7 @@ async function main() {
   const total = categories.reduce((n, c) => n + c.designs.length, 0);
   console.log(
     `Wrote ${path.relative(ROOT, OUT)}: ${categories.length} categories, ${total} designs ` +
-    `(${processed} processed, ${reused} reused).`
+    `(${counters.processed} processed, ${counters.reused} reused).`
   );
 }
 
@@ -194,17 +228,22 @@ function cleanOrphans(categories) {
   categories.forEach((c) =>
     c.designs.forEach((d) => { keep.add(d.full); keep.add(d.thumb); })
   );
-  for (const cat of fs.readdirSync(GEN_DIR, { withFileTypes: true })) {
-    if (!cat.isDirectory()) continue;
-    const catPath = path.join(GEN_DIR, cat.name);
-    for (const f of fs.readdirSync(catPath)) {
-      const rel = `generated/${cat.name}/${f}`;
-      if (!keep.has(rel)) {
-        fs.unlinkSync(path.join(catPath, f));
+
+  // Recursively remove generated files not in the keep set, then prune empty dirs.
+  function walk(absDir, relDir) {
+    for (const entry of fs.readdirSync(absDir, { withFileTypes: true })) {
+      const abs = path.join(absDir, entry.name);
+      const rel = relDir ? `${relDir}/${entry.name}` : entry.name;
+      if (entry.isDirectory()) {
+        walk(abs, rel);
+      } else {
+        if (!keep.has(`generated/${rel}`)) fs.unlinkSync(abs);
       }
     }
-    if (fs.readdirSync(catPath).length === 0) fs.rmdirSync(catPath);
+    // prune empty directory (but not the top generated/ root)
+    if (absDir !== GEN_DIR && fs.readdirSync(absDir).length === 0) fs.rmdirSync(absDir);
   }
+  walk(GEN_DIR, "");
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

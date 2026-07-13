@@ -237,6 +237,21 @@
   .tab[aria-selected="true"] { background: var(--grape); color: #fff; }
   .tab:active { transform: scale(.96); }
 
+  .subtabs {
+    display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none;
+    max-width: 900px; margin: .5rem auto 0; padding-bottom: .2rem;
+  }
+  .subtabs[hidden] { display: none; }
+  .subtabs::-webkit-scrollbar { display: none; }
+  .subtab {
+    flex: 0 0 auto; border: 2px solid rgba(53,198,165,.35); background: #fff;
+    color: var(--ink); font-family: "Baloo 2", sans-serif; font-weight: 600;
+    font-size: .88rem; padding: .35rem .9rem; border-radius: 999px; cursor: pointer;
+    white-space: nowrap; transition: transform .1s;
+  }
+  .subtab[aria-selected="true"] { background: var(--mint); color: #fff; border-color: var(--mint); }
+  .subtab:active { transform: scale(.96); }
+
   .price-controls {
     display: flex; align-items: center; justify-content: space-between;
     gap: .6rem; max-width: 900px; margin: .55rem auto 0; flex-wrap: wrap;
@@ -468,6 +483,7 @@
     <input id="search" type="search" placeholder="Search designs — tiger, unicorn, spider…" autocomplete="off" />
   </div>
   <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="subtabs" id="subtabs" role="tablist" hidden></div>
   <div class="price-controls" id="price-controls">
     <div class="price-filters" id="price-filters" role="group" aria-label="Filter by price"></div>
     <label class="sort-wrap">
@@ -566,6 +582,7 @@ let DATA = { categories: [] };
 let favs = new Set();
 try { favs = new Set(JSON.parse(localStorage.getItem(FAVKEY) || "[]")); } catch (e) {}
 let activeCat = "all";
+let activeSub = "all";
 let query = "";
 let showingFavs = false;
 let priceFilter = null;   // null = all prices; otherwise a number (12/17/22)
@@ -637,8 +654,29 @@ function buildTabs() {
     b.textContent = c.name;
     b.setAttribute("role", "tab");
     b.setAttribute("aria-selected", c.id === activeCat ? "true" : "false");
-    b.onclick = () => { activeCat = c.id; showingFavs = false; buildTabs(); render(); };
+    b.onclick = () => { activeCat = c.id; activeSub = "all"; showingFavs = false; buildTabs(); buildSubtabs(); render(); };
     tabs.appendChild(b);
+  });
+  buildSubtabs();
+}
+
+function buildSubtabs() {
+  const bar = $("subtabs");
+  bar.innerHTML = "";
+  const cat = DATA.categories.find((c) => c.id === activeCat);
+  const subs = cat && cat.subcategories ? cat.subcategories : null;
+  // Show sub-tabs only when the active category has subcategories.
+  if (!subs || subs.length === 0) { bar.hidden = true; return; }
+  bar.hidden = false;
+  const items = [{ id: "all", name: "All " + cat.name }, ...subs];
+  items.forEach((s) => {
+    const b = document.createElement("button");
+    b.className = "subtab";
+    b.textContent = s.name;
+    b.setAttribute("role", "tab");
+    b.setAttribute("aria-selected", s.id === activeSub ? "true" : "false");
+    b.onclick = () => { activeSub = s.id; buildSubtabs(); render(); };
+    bar.appendChild(b);
   });
 }
 
@@ -669,10 +707,20 @@ function render() {
   let total = 0;
   cats.forEach((c) => {
     let designs = c.designs.map((d) => ({ ...d, cat: c.id, catName: c.name }));
+    // If this category has subcategories and a specific one is chosen, filter to it.
+    if (c.id === activeCat && activeSub !== "all") {
+      designs = designs.filter((d) => d.sub === activeSub);
+    }
     if (query) designs = designs.filter((d) => match(d));
     designs = applyPriceFilterSort(designs);
     if (designs.length) {
-      renderGroup(results, c.name, designs);
+      // Title reflects the subcategory when one is selected.
+      let title = c.name;
+      if (c.id === activeCat && activeSub !== "all" && c.subcategories) {
+        const sub = c.subcategories.find((s) => s.id === activeSub);
+        if (sub) title = `${c.name} · ${sub.name}`;
+      }
+      renderGroup(results, title, designs);
       total += designs.length;
     }
   });

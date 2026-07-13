@@ -22,6 +22,19 @@ them, generates thumbnails, and updates the site. Hosting is free on GitHub Page
    designs that aren't sold per-piece.
 3. To make a **new category**, create a new folder inside `designs/`
    (e.g. `designs/glitter/`) and drop photos in. It becomes a tab automatically.
+
+### Subcategories (two levels)
+A category can have subcategories by putting folders *inside* a category folder:
+- `designs/seasonal/christmas/santa-17.jpg` → category **Seasonal**, subcategory **Christmas**
+- `designs/seasonal/halloween/pumpkin-12.jpg` → category **Seasonal**, subcategory **Halloween**
+
+On the site, tapping a category that has subcategories shows a second row of
+sub-tabs (e.g. Christmas, Halloween, Valentine's Day). Categories without
+subfolders just show their designs normally.
+
+You can also mix: photos placed directly in a category folder (not in a
+subfolder) show under that category with no subcategory. So
+`designs/animals/tiger-17.jpg` works fine even if Animals has no subcategories.
 4. Commit and push. The GitHub Action runs and, for each new photo:
    - compresses a web-optimized full image,
    - creates a small square thumbnail,
