@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-13T23:49:58.687Z",
+  "generated": "2026-07-13T23:58:38.421Z",
   "categories": [
     {
       "id": "animals",
@@ -124,6 +124,18 @@
           "price": null,
           "thumb": "generated/princesses/snowflake-princess.thumb.webp",
           "full": "generated/princesses/snowflake-princess.webp"
+        }
+      ]
+    },
+    {
+      "id": "rainbows",
+      "name": "Rainbows",
+      "designs": [
+        {
+          "name": "Rainbow 1",
+          "price": 12,
+          "thumb": "generated/rainbows/rainbow-1-12.thumb.webp",
+          "full": "generated/rainbows/rainbow-1-12.webp"
         }
       ]
     },
