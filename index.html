@@ -92,39 +92,14 @@
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  /* Shimmer: base text is solid ink. A duplicate (::before) is clipped to a
-     bright gradient and slid across with transform, so ONLY the letters shine.
-     Using transform (not background-position) keeps it working on iOS Safari. */
-  .spark-static { display: inline-block; }
-  .shimmer {
-    position: relative;
-    display: inline-block;
-    color: var(--ink);
-  }
-  .shimmer::before {
-    content: attr(data-text);
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%;
-    pointer-events: none;
-    color: transparent;
-    background: linear-gradient(
-      100deg,
-      transparent 30%,
-      rgba(255,255,255,.9) 45%,
-      #f0d9ff 50%,
-      rgba(255,255,255,.9) 55%,
-      transparent 70%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: translateX(-110%);
-    animation: shimmer-slide 2.4s ease-in-out 1s 1 both;
-  }
-  @keyframes shimmer-slide {
-    from { transform: translateX(-110%); }
-    to   { transform: translateX(110%); }
+  /* SVG shine: gradient sweeps through the letters. Reliable on iOS Safari
+     because SVG gradient animation doesn't rely on background-clip:text. */
+  .shine-svg {
+    display: block;
+    width: min(420px, 88vw);
+    height: auto;
+    margin: 0 auto;
+    overflow: visible;
   }
   /* Little sparkle bursts pop in and out at a few spots, once */
   .burst {
@@ -436,12 +411,32 @@
 <header class="hero" id="top">
   <img class="hero-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
   <h1 class="visually-hidden">Twinkle Pop Face — Face Painting</h1>
-  <p class="tag"><span class="tag-main">
-    <span class="spark-static" aria-hidden="true">✨</span><span class="shimmer" data-text="Add sparkles to those smiles">Add sparkles to those smiles</span><span class="spark-static" aria-hidden="true">✨</span>
-    <span class="burst burst-1" aria-hidden="true">✦</span>
-    <span class="burst burst-2" aria-hidden="true">✧</span>
-    <span class="burst burst-3" aria-hidden="true">✦</span>
-  </span><br><span class="tag-sub">Face painting service in St. John's and surrounding areas in NL, Canada</span></p>
+  <p class="tag">
+    <span class="visually-hidden">✨ Add sparkles to those smiles ✨</span>
+    <span class="tag-main" aria-hidden="true">
+      <svg class="shine-svg" viewBox="0 0 560 60" role="img" aria-label="Add sparkles to those smiles" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="shineGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+            <stop offset="0%"  stop-color="#2b2440"/>
+            <stop offset="35%" stop-color="#2b2440"/>
+            <stop offset="47%" stop-color="#ffffff"/>
+            <stop offset="50%" stop-color="#f0d9ff"/>
+            <stop offset="53%" stop-color="#ffffff"/>
+            <stop offset="65%" stop-color="#2b2440"/>
+            <stop offset="100%" stop-color="#2b2440"/>
+            <animate attributeName="x1" from="-1" to="1" dur="2.2s" begin="0.9s" fill="freeze"/>
+            <animate attributeName="x2" from="0" to="2" dur="2.2s" begin="0.9s" fill="freeze"/>
+          </linearGradient>
+        </defs>
+        <text x="280" y="44" text-anchor="middle" fill="url(#shineGrad)"
+              font-family="'Baloo 2', sans-serif" font-weight="800" font-size="40">✨ Add sparkles to those smiles ✨</text>
+      </svg>
+      <span class="burst burst-1" aria-hidden="true">✦</span>
+      <span class="burst burst-2" aria-hidden="true">✧</span>
+      <span class="burst burst-3" aria-hidden="true">✦</span>
+    </span>
+    <br><span class="tag-sub">Face painting service in St. John's and surrounding areas in NL, Canada</span>
+  </p>
   <div class="hero-cta">
     <button class="btn btn-grape" id="browse-btn">Browse designs</button>
     <button class="btn btn-coral" id="book-btn">Book us</button>
