@@ -1,27 +1,129 @@
 {
-  "generated": "2026-07-13T01:08:09.010Z",
+  "generated": "2026-07-13T23:17:22.174Z",
   "categories": [
     {
       "id": "animals",
       "name": "Animals",
       "designs": [
         {
-          "name": "Butterfly",
-          "price": 12,
-          "thumb": "generated/animals/butterfly-12.thumb.webp",
-          "full": "generated/animals/butterfly-12.webp"
+          "name": "Cat 1",
+          "price": 22,
+          "thumb": "generated/animals/cat-1-22.thumb.webp",
+          "full": "generated/animals/cat-1-22.webp"
         },
         {
-          "name": "Puppy",
-          "price": 12,
-          "thumb": "generated/animals/puppy-12.thumb.webp",
-          "full": "generated/animals/puppy-12.webp"
-        },
-        {
-          "name": "Tiger",
+          "name": "Claw",
           "price": 17,
-          "thumb": "generated/animals/tiger-17.thumb.webp",
-          "full": "generated/animals/tiger-17.webp"
+          "thumb": "generated/animals/claw-17.thumb.webp",
+          "full": "generated/animals/claw-17.webp"
+        },
+        {
+          "name": "Teddy Bear",
+          "price": 17,
+          "thumb": "generated/animals/teddy-bear-17.thumb.webp",
+          "full": "generated/animals/teddy-bear-17.webp"
+        },
+        {
+          "name": "Unicorn 1",
+          "price": 22,
+          "thumb": "generated/animals/unicorn-1-22.thumb.webp",
+          "full": "generated/animals/unicorn-1-22.webp"
+        }
+      ]
+    },
+    {
+      "id": "halloween",
+      "name": "Halloween",
+      "designs": [
+        {
+          "name": "Pumpkin",
+          "price": 12,
+          "thumb": "generated/halloween/pumpkin-12.thumb.webp",
+          "full": "generated/halloween/pumpkin-12.webp"
+        },
+        {
+          "name": "Pumpkin",
+          "price": null,
+          "thumb": "generated/halloween/pumpkin.thumb.webp",
+          "full": "generated/halloween/pumpkin.webp"
+        },
+        {
+          "name": "Skull",
+          "price": 17,
+          "thumb": "generated/halloween/skull-17.thumb.webp",
+          "full": "generated/halloween/skull-17.webp"
+        },
+        {
+          "name": "Skull",
+          "price": null,
+          "thumb": "generated/halloween/skull.thumb.webp",
+          "full": "generated/halloween/skull.webp"
+        },
+        {
+          "name": "Spooky Spider",
+          "price": 22,
+          "thumb": "generated/halloween/spooky-spider-22.thumb.webp",
+          "full": "generated/halloween/spooky-spider-22.webp"
+        },
+        {
+          "name": "Spooky Spider",
+          "price": null,
+          "thumb": "generated/halloween/spooky-spider.thumb.webp",
+          "full": "generated/halloween/spooky-spider.webp"
+        },
+        {
+          "name": "Witch",
+          "price": 22,
+          "thumb": "generated/halloween/witch-22.thumb.webp",
+          "full": "generated/halloween/witch-22.webp"
+        },
+        {
+          "name": "Witch",
+          "price": null,
+          "thumb": "generated/halloween/witch.thumb.webp",
+          "full": "generated/halloween/witch.webp"
+        }
+      ]
+    },
+    {
+      "id": "princesses",
+      "name": "Princesses",
+      "designs": [
+        {
+          "name": "Fairy Sparkle",
+          "price": 22,
+          "thumb": "generated/princesses/fairy-sparkle-22.thumb.webp",
+          "full": "generated/princesses/fairy-sparkle-22.webp"
+        },
+        {
+          "name": "Fairy Sparkle",
+          "price": null,
+          "thumb": "generated/princesses/fairy-sparkle.thumb.webp",
+          "full": "generated/princesses/fairy-sparkle.webp"
+        },
+        {
+          "name": "Rainbow Crown",
+          "price": 17,
+          "thumb": "generated/princesses/rainbow-crown-17.thumb.webp",
+          "full": "generated/princesses/rainbow-crown-17.webp"
+        },
+        {
+          "name": "Rainbow Crown",
+          "price": null,
+          "thumb": "generated/princesses/rainbow-crown.thumb.webp",
+          "full": "generated/princesses/rainbow-crown.webp"
+        },
+        {
+          "name": "Snowflake Princess",
+          "price": 17,
+          "thumb": "generated/princesses/snowflake-princess-17.thumb.webp",
+          "full": "generated/princesses/snowflake-princess-17.webp"
+        },
+        {
+          "name": "Snowflake Princess",
+          "price": null,
+          "thumb": "generated/princesses/snowflake-princess.thumb.webp",
+          "full": "generated/princesses/snowflake-princess.webp"
         }
       ]
     },
@@ -66,6 +168,48 @@
         {
           "id": "halloween",
           "name": "Halloween"
+        }
+      ]
+    },
+    {
+      "id": "superheroes",
+      "name": "Superheroes",
+      "designs": [
+        {
+          "name": "Bat Hero",
+          "price": 17,
+          "thumb": "generated/superheroes/bat-hero-17.thumb.webp",
+          "full": "generated/superheroes/bat-hero-17.webp"
+        },
+        {
+          "name": "Bat Hero",
+          "price": null,
+          "thumb": "generated/superheroes/bat-hero.thumb.webp",
+          "full": "generated/superheroes/bat-hero.webp"
+        },
+        {
+          "name": "Lightning Bolt",
+          "price": 12,
+          "thumb": "generated/superheroes/lightning-bolt-12.thumb.webp",
+          "full": "generated/superheroes/lightning-bolt-12.webp"
+        },
+        {
+          "name": "Lightning Bolt",
+          "price": null,
+          "thumb": "generated/superheroes/lightning-bolt.thumb.webp",
+          "full": "generated/superheroes/lightning-bolt.webp"
+        },
+        {
+          "name": "Spider Mask",
+          "price": 22,
+          "thumb": "generated/superheroes/spider-mask-22.thumb.webp",
+          "full": "generated/superheroes/spider-mask-22.webp"
+        },
+        {
+          "name": "Spider Mask",
+          "price": null,
+          "thumb": "generated/superheroes/spider-mask.thumb.webp",
+          "full": "generated/superheroes/spider-mask.webp"
         }
       ]
     }
