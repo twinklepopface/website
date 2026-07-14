@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-14T01:00:28.780Z",
+  "generated": "2026-07-14T01:07:22.582Z",
   "categories": [
     {
       "id": "animals",
@@ -176,10 +176,10 @@
       "name": "Teens N Up",
       "designs": [
         {
-          "name": "Bullterfly Eye",
+          "name": "Butterfly Eye",
           "price": 17,
-          "thumb": "generated/teens-n-up/bullterfly-eye-17.thumb.webp",
-          "full": "generated/teens-n-up/bullterfly-eye-17.webp"
+          "thumb": "generated/teens-n-up/butterfly-eye-17.thumb.webp",
+          "full": "generated/teens-n-up/butterfly-eye-17.webp"
         },
         {
           "name": "Flower Eye",
