@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-13T23:58:38.421Z",
+  "generated": "2026-07-14T00:53:53.281Z",
   "categories": [
     {
       "id": "animals",
@@ -28,60 +28,6 @@
           "price": 22,
           "thumb": "generated/animals/unicorn-1-22.thumb.webp",
           "full": "generated/animals/unicorn-1-22.webp"
-        }
-      ]
-    },
-    {
-      "id": "halloween",
-      "name": "Halloween",
-      "designs": [
-        {
-          "name": "Pumpkin",
-          "price": 12,
-          "thumb": "generated/halloween/pumpkin-12.thumb.webp",
-          "full": "generated/halloween/pumpkin-12.webp"
-        },
-        {
-          "name": "Pumpkin",
-          "price": null,
-          "thumb": "generated/halloween/pumpkin.thumb.webp",
-          "full": "generated/halloween/pumpkin.webp"
-        },
-        {
-          "name": "Skull",
-          "price": 17,
-          "thumb": "generated/halloween/skull-17.thumb.webp",
-          "full": "generated/halloween/skull-17.webp"
-        },
-        {
-          "name": "Skull",
-          "price": null,
-          "thumb": "generated/halloween/skull.thumb.webp",
-          "full": "generated/halloween/skull.webp"
-        },
-        {
-          "name": "Spooky Spider",
-          "price": 22,
-          "thumb": "generated/halloween/spooky-spider-22.thumb.webp",
-          "full": "generated/halloween/spooky-spider-22.webp"
-        },
-        {
-          "name": "Spooky Spider",
-          "price": null,
-          "thumb": "generated/halloween/spooky-spider.thumb.webp",
-          "full": "generated/halloween/spooky-spider.webp"
-        },
-        {
-          "name": "Witch",
-          "price": 22,
-          "thumb": "generated/halloween/witch-22.thumb.webp",
-          "full": "generated/halloween/witch-22.webp"
-        },
-        {
-          "name": "Witch",
-          "price": null,
-          "thumb": "generated/halloween/witch.thumb.webp",
-          "full": "generated/halloween/witch.webp"
         }
       ]
     },
