@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-17T22:55:01.395Z",
+  "generated": "2026-07-17T23:26:05.157Z",
   "categories": [
     {
       "id": "animals",
@@ -108,12 +108,6 @@
           "full": "generated/animals/tiger-face-22.webp"
         },
         {
-          "name": "Unicorn 1",
-          "price": 22,
-          "thumb": "generated/animals/unicorn-1-22.thumb.webp",
-          "full": "generated/animals/unicorn-1-22.webp"
-        },
-        {
           "name": "White N Pink Cat",
           "price": 17,
           "thumb": "generated/animals/white-n-pink-cat-17.thumb.webp",
@@ -166,6 +160,12 @@
           "price": 17,
           "thumb": "generated/body-art/snake-17.thumb.webp",
           "full": "generated/body-art/snake-17.webp"
+        },
+        {
+          "name": "Spider",
+          "price": 12,
+          "thumb": "generated/body-art/spider-12.thumb.webp",
+          "full": "generated/body-art/spider-12.webp"
         }
       ]
     },
@@ -184,6 +184,12 @@
           "price": 22,
           "thumb": "generated/characters/minecraft-22.thumb.webp",
           "full": "generated/characters/minecraft-22.webp"
+        },
+        {
+          "name": "Spider",
+          "price": 12,
+          "thumb": "generated/characters/spider-12.thumb.webp",
+          "full": "generated/characters/spider-12.webp"
         },
         {
           "name": "Spiderman Eye",
@@ -520,6 +526,12 @@
           "price": 17,
           "thumb": "generated/teens-n-up/snake-17.thumb.webp",
           "full": "generated/teens-n-up/snake-17.webp"
+        },
+        {
+          "name": "Spider",
+          "price": 12,
+          "thumb": "generated/teens-n-up/spider-12.thumb.webp",
+          "full": "generated/teens-n-up/spider-12.webp"
         },
         {
           "name": "Tribal Tattoo",
