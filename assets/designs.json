@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-17T22:36:33.099Z",
+  "generated": "2026-07-17T22:55:01.395Z",
   "categories": [
     {
       "id": "animals",
@@ -72,6 +72,12 @@
           "full": "generated/animals/small-butterfly-17.webp"
         },
         {
+          "name": "Snake",
+          "price": 17,
+          "thumb": "generated/animals/snake-17.thumb.webp",
+          "full": "generated/animals/snake-17.webp"
+        },
+        {
           "name": "Spider",
           "price": 12,
           "thumb": "generated/animals/spider-12.thumb.webp",
@@ -120,6 +126,12 @@
       "name": "Body Art",
       "designs": [
         {
+          "name": "Black Ghost Roses",
+          "price": 17,
+          "thumb": "generated/body-art/black-ghost-roses-17.thumb.webp",
+          "full": "generated/body-art/black-ghost-roses-17.webp"
+        },
+        {
           "name": "Feather",
           "price": 17,
           "thumb": "generated/body-art/feather-17.thumb.webp",
@@ -138,10 +150,22 @@
           "full": "generated/body-art/mermaid-on-arm-17.webp"
         },
         {
+          "name": "Rainbow Puke",
+          "price": 17,
+          "thumb": "generated/body-art/rainbow-puke-17.thumb.webp",
+          "full": "generated/body-art/rainbow-puke-17.webp"
+        },
+        {
           "name": "Small Butterfly",
           "price": 17,
           "thumb": "generated/body-art/small-butterfly-17.thumb.webp",
           "full": "generated/body-art/small-butterfly-17.webp"
+        },
+        {
+          "name": "Snake",
+          "price": 17,
+          "thumb": "generated/body-art/snake-17.thumb.webp",
+          "full": "generated/body-art/snake-17.webp"
         }
       ]
     },
@@ -300,31 +324,31 @@
           "sub": "unicorns"
         },
         {
-          "name": "Purple Unicorn Face",
+          "name": "Purple Unicorn",
           "price": 17,
-          "thumb": "generated/princesses/unicorns/purple-unicorn-face-17.thumb.webp",
-          "full": "generated/princesses/unicorns/purple-unicorn-face-17.webp",
+          "thumb": "generated/princesses/unicorns/purple-unicorn-17.thumb.webp",
+          "full": "generated/princesses/unicorns/purple-unicorn-17.webp",
           "sub": "unicorns"
         },
         {
           "name": "Rainbow Unicorn",
+          "price": 17,
+          "thumb": "generated/princesses/unicorns/rainbow-unicorn-17.thumb.webp",
+          "full": "generated/princesses/unicorns/rainbow-unicorn-17.webp",
+          "sub": "unicorns"
+        },
+        {
+          "name": "Unicorn Eye",
+          "price": 17,
+          "thumb": "generated/princesses/unicorns/unicorn-eye-17.thumb.webp",
+          "full": "generated/princesses/unicorns/unicorn-eye-17.webp",
+          "sub": "unicorns"
+        },
+        {
+          "name": "Unicorn Rainbow Flowers",
           "price": 22,
-          "thumb": "generated/princesses/unicorns/rainbow-unicorn-22.thumb.webp",
-          "full": "generated/princesses/unicorns/rainbow-unicorn-22.webp",
-          "sub": "unicorns"
-        },
-        {
-          "name": "Small Rainbow Unicorn",
-          "price": 17,
-          "thumb": "generated/princesses/unicorns/small-rainbow-unicorn-17.thumb.webp",
-          "full": "generated/princesses/unicorns/small-rainbow-unicorn-17.webp",
-          "sub": "unicorns"
-        },
-        {
-          "name": "Small Unicorn",
-          "price": 17,
-          "thumb": "generated/princesses/unicorns/small-unicorn-17.thumb.webp",
-          "full": "generated/princesses/unicorns/small-unicorn-17.webp",
+          "thumb": "generated/princesses/unicorns/unicorn-rainbow-flowers-22.thumb.webp",
+          "full": "generated/princesses/unicorns/unicorn-rainbow-flowers-22.webp",
           "sub": "unicorns"
         }
       ],
@@ -420,6 +444,12 @@
       "name": "Silly And Fun",
       "designs": [
         {
+          "name": "Rainbow Puke",
+          "price": 17,
+          "thumb": "generated/silly-and-fun/rainbow-puke-17.thumb.webp",
+          "full": "generated/silly-and-fun/rainbow-puke-17.webp"
+        },
+        {
           "name": "Slime",
           "price": 17,
           "thumb": "generated/silly-and-fun/slime-17.thumb.webp",
@@ -450,6 +480,24 @@
       "name": "Teens N Up",
       "designs": [
         {
+          "name": "Black Ghost Roses",
+          "price": 17,
+          "thumb": "generated/teens-n-up/black-ghost-roses-17.thumb.webp",
+          "full": "generated/teens-n-up/black-ghost-roses-17.webp"
+        },
+        {
+          "name": "Feather",
+          "price": 17,
+          "thumb": "generated/teens-n-up/feather-17.thumb.webp",
+          "full": "generated/teens-n-up/feather-17.webp"
+        },
+        {
+          "name": "Flower Bracelet",
+          "price": 17,
+          "thumb": "generated/teens-n-up/flower-bracelet-17.thumb.webp",
+          "full": "generated/teens-n-up/flower-bracelet-17.webp"
+        },
+        {
           "name": "Flower Eye",
           "price": 17,
           "thumb": "generated/teens-n-up/flower-eye-17.thumb.webp",
@@ -466,6 +514,12 @@
           "price": 17,
           "thumb": "generated/teens-n-up/small-butterfly-17.thumb.webp",
           "full": "generated/teens-n-up/small-butterfly-17.webp"
+        },
+        {
+          "name": "Snake",
+          "price": 17,
+          "thumb": "generated/teens-n-up/snake-17.thumb.webp",
+          "full": "generated/teens-n-up/snake-17.webp"
         },
         {
           "name": "Tribal Tattoo",
