@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-17T23:26:05.157Z",
+  "generated": "2026-07-17T23:29:34.670Z",
   "categories": [
     {
       "id": "animals",
@@ -202,12 +202,6 @@
           "price": 22,
           "thumb": "generated/characters/spiderman-face-22.thumb.webp",
           "full": "generated/characters/spiderman-face-22.webp"
-        },
-        {
-          "name": "Super Mario",
-          "price": 22,
-          "thumb": "generated/characters/super-mario-22.thumb.webp",
-          "full": "generated/characters/super-mario-22.webp"
         }
       ]
     },
