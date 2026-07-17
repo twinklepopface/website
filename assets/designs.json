@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-17T22:29:43.665Z",
+  "generated": "2026-07-17T22:36:33.099Z",
   "categories": [
     {
       "id": "animals",
@@ -244,13 +244,6 @@
           "sub": "butterflies"
         },
         {
-          "name": "Small Butterfly",
-          "price": 17,
-          "thumb": "generated/princesses/butterflies/small-butterfly-17.thumb.webp",
-          "full": "generated/princesses/butterflies/small-butterfly-17.webp",
-          "sub": "butterflies"
-        },
-        {
           "name": "Ballerina Crown",
           "price": 22,
           "thumb": "generated/princesses/crowns/ballerina-crown-22.thumb.webp",
@@ -279,17 +272,17 @@
           "sub": "others"
         },
         {
-          "name": "Mermaid Face",
-          "price": 22,
-          "thumb": "generated/princesses/others/mermaid-face-22.thumb.webp",
-          "full": "generated/princesses/others/mermaid-face-22.webp",
-          "sub": "others"
-        },
-        {
           "name": "Mermaid on Arm",
           "price": 17,
           "thumb": "generated/princesses/others/mermaid-on-arm-17.thumb.webp",
           "full": "generated/princesses/others/mermaid-on-arm-17.webp",
+          "sub": "others"
+        },
+        {
+          "name": "Mermaid Tail",
+          "price": 22,
+          "thumb": "generated/princesses/others/mermaid-tail-22.thumb.webp",
+          "full": "generated/princesses/others/mermaid-tail-22.webp",
           "sub": "others"
         },
         {
@@ -359,6 +352,12 @@
       "name": "Rainbows",
       "designs": [
         {
+          "name": "Rainbo Stars",
+          "price": 17,
+          "thumb": "generated/rainbows/rainbo-stars-17.thumb.webp",
+          "full": "generated/rainbows/rainbo-stars-17.webp"
+        },
+        {
           "name": "Rainbow 1",
           "price": 12,
           "thumb": "generated/rainbows/rainbow-1-12.thumb.webp",
@@ -369,12 +368,6 @@
           "price": 17,
           "thumb": "generated/rainbows/rainbow-with-flowers-17.thumb.webp",
           "full": "generated/rainbows/rainbow-with-flowers-17.webp"
-        },
-        {
-          "name": "Stars",
-          "price": 17,
-          "thumb": "generated/rainbows/stars-17.thumb.webp",
-          "full": "generated/rainbows/stars-17.webp"
         }
       ]
     },
@@ -456,12 +449,6 @@
       "id": "teens-n-up",
       "name": "Teens N Up",
       "designs": [
-        {
-          "name": "Butterfly Eye",
-          "price": 17,
-          "thumb": "generated/teens-n-up/butterfly-eye-17.thumb.webp",
-          "full": "generated/teens-n-up/butterfly-eye-17.webp"
-        },
         {
           "name": "Flower Eye",
           "price": 17,
