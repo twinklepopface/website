@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-17T23:29:34.670Z",
+  "generated": "2026-07-17T23:34:05.976Z",
   "categories": [
     {
       "id": "animals",
@@ -160,12 +160,6 @@
           "price": 17,
           "thumb": "generated/body-art/snake-17.thumb.webp",
           "full": "generated/body-art/snake-17.webp"
-        },
-        {
-          "name": "Spider",
-          "price": 12,
-          "thumb": "generated/body-art/spider-12.thumb.webp",
-          "full": "generated/body-art/spider-12.webp"
         }
       ]
     },
@@ -184,12 +178,6 @@
           "price": 22,
           "thumb": "generated/characters/minecraft-22.thumb.webp",
           "full": "generated/characters/minecraft-22.webp"
-        },
-        {
-          "name": "Spider",
-          "price": 12,
-          "thumb": "generated/characters/spider-12.thumb.webp",
-          "full": "generated/characters/spider-12.webp"
         },
         {
           "name": "Spiderman Eye",
@@ -386,6 +374,12 @@
           "price": 12,
           "thumb": "generated/rainbows/rainbow-1-12.thumb.webp",
           "full": "generated/rainbows/rainbow-1-12.webp"
+        },
+        {
+          "name": "Rainbow Puke",
+          "price": 17,
+          "thumb": "generated/rainbows/rainbow-puke-17.thumb.webp",
+          "full": "generated/rainbows/rainbow-puke-17.webp"
         },
         {
           "name": "Rainbow with Flowers",
