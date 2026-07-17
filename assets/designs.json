@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-17T23:34:05.976Z",
+  "generated": "2026-07-17T23:39:29.921Z",
   "categories": [
     {
       "id": "animals",
@@ -76,18 +76,6 @@
           "price": 17,
           "thumb": "generated/animals/snake-17.thumb.webp",
           "full": "generated/animals/snake-17.webp"
-        },
-        {
-          "name": "Spider",
-          "price": 12,
-          "thumb": "generated/animals/spider-12.thumb.webp",
-          "full": "generated/animals/spider-12.webp"
-        },
-        {
-          "name": "Spider Web",
-          "price": 17,
-          "thumb": "generated/animals/spider-web-17.thumb.webp",
-          "full": "generated/animals/spider-web-17.webp"
         },
         {
           "name": "Teddy Bear",
@@ -190,6 +178,12 @@
           "price": 22,
           "thumb": "generated/characters/spiderman-face-22.thumb.webp",
           "full": "generated/characters/spiderman-face-22.webp"
+        },
+        {
+          "name": "Super Mario",
+          "price": 22,
+          "thumb": "generated/characters/super-mario-22.thumb.webp",
+          "full": "generated/characters/super-mario-22.webp"
         }
       ]
     },
