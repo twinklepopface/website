@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-17T22:24:26.538Z",
+  "generated": "2026-07-17T22:29:43.665Z",
   "categories": [
     {
       "id": "animals",
@@ -300,6 +300,13 @@
           "sub": "others"
         },
         {
+          "name": "Pastel Unicorn",
+          "price": 22,
+          "thumb": "generated/princesses/unicorns/pastel-unicorn-22.thumb.webp",
+          "full": "generated/princesses/unicorns/pastel-unicorn-22.webp",
+          "sub": "unicorns"
+        },
+        {
           "name": "Purple Unicorn Face",
           "price": 17,
           "thumb": "generated/princesses/unicorns/purple-unicorn-face-17.thumb.webp",
@@ -383,34 +390,6 @@
           "sub": "canada-day"
         },
         {
-          "name": "Santa",
-          "price": 17,
-          "thumb": "generated/seasonal/christmas/santa-17.thumb.webp",
-          "full": "generated/seasonal/christmas/santa-17.webp",
-          "sub": "christmas"
-        },
-        {
-          "name": "Snowman",
-          "price": 12,
-          "thumb": "generated/seasonal/christmas/snowman-12.thumb.webp",
-          "full": "generated/seasonal/christmas/snowman-12.webp",
-          "sub": "christmas"
-        },
-        {
-          "name": "Pumpkin",
-          "price": 12,
-          "thumb": "generated/seasonal/halloween/pumpkin-12.thumb.webp",
-          "full": "generated/seasonal/halloween/pumpkin-12.webp",
-          "sub": "halloween"
-        },
-        {
-          "name": "Spooky Ghost",
-          "price": 22,
-          "thumb": "generated/seasonal/halloween/spooky-ghost-22.thumb.webp",
-          "full": "generated/seasonal/halloween/spooky-ghost-22.webp",
-          "sub": "halloween"
-        },
-        {
           "name": "Heart Freckles",
           "price": 12,
           "thumb": "generated/seasonal/valentines-day/heart-freckles-12.thumb.webp",
@@ -436,14 +415,6 @@
         {
           "id": "canada-day",
           "name": "Canada Day"
-        },
-        {
-          "id": "christmas",
-          "name": "Christmas"
-        },
-        {
-          "id": "halloween",
-          "name": "Halloween"
         },
         {
           "id": "valentines-day",
