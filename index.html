@@ -117,6 +117,14 @@
   .landing-social a:hover { background: rgba(123,75,214,.2); transform: translateY(-2px); }
   .landing-social a:active { transform: scale(.94); }
   .landing-copyright { color: var(--muted); font-weight: 600; font-size: .85rem; }
+  .footer-info-link {
+    border: none; background: none; cursor: pointer;
+    font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: .92rem;
+    color: var(--grape); padding: .3rem .6rem; border-radius: 999px;
+    transition: background .12s, transform .1s;
+  }
+  .footer-info-link:hover { background: rgba(123,75,214,.08); }
+  .footer-info-link:active { transform: scale(.96); }
   .hero-cta {
     margin-top: 1.4rem;
     display: inline-flex;
@@ -239,6 +247,19 @@
     padding: .35rem .6rem; border-radius: 10px; border: 2px solid rgba(123,75,214,.2);
     background: #fff; color: var(--ink); cursor: pointer;
   }
+  .view-controls {
+    display: flex; align-items: center; justify-content: flex-end; gap: .5rem;
+    max-width: 900px; margin: .5rem auto 0;
+  }
+  .view-label { font-family: "Baloo 2"; font-weight: 600; font-size: .85rem; color: var(--muted); }
+  .density-toggle { display: flex; gap: .3rem; }
+  .density-btn {
+    border: 2px solid rgba(123,75,214,.2); background: #fff; color: var(--muted);
+    font-size: .7rem; letter-spacing: 1px; padding: .35rem .55rem; border-radius: 8px;
+    cursor: pointer; line-height: 1; transition: transform .1s;
+  }
+  .density-btn[aria-pressed="true"] { background: var(--grape); color: #fff; border-color: var(--grape); }
+  .density-btn:active { transform: scale(.94); }
   /* Hourly mode: hide all price-related UI */
   .price-badge, #price-hint, #price-controls, #prices { display: none; }
   body.show-prices .price-badge { display: inline-block; }
@@ -257,9 +278,16 @@
   .cat-title .count { font-family: "Nunito"; font-size: .85rem; font-weight: 700; color: #fff; background: var(--mango); padding: .1rem .6rem; border-radius: 999px; }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: .9rem;
   }
+  /* Visitor-chosen density; applied to #results */
+  #results[data-cols="2"] .grid { grid-template-columns: repeat(2, 1fr); }
+  #results[data-cols="3"] .grid { grid-template-columns: repeat(3, 1fr); }
+  #results[data-cols="4"] .grid { grid-template-columns: repeat(4, 1fr); }
+  /* Smaller labels/badges when packed tighter */
+  #results[data-cols="4"] .card .label, #results[data-cols="3"] .card .label { font-size: .82rem; padding: .4rem .5rem .5rem; }
+  #results[data-cols="4"] .price-badge { font-size: .72rem; padding: .1rem .4rem; }
   .card {
     background: var(--card);
     border-radius: var(--radius);
@@ -335,6 +363,16 @@
     background: linear-gradient(160deg, var(--mint), var(--sky));
     color: #fff; border-radius: 24px; padding: 1.8rem; text-align: center;
   }
+  .info-card {
+    background: #fff; border-radius: 24px; padding: 1.6rem 1.5rem;
+    box-shadow: var(--shadow); max-width: 640px; margin: 0 auto;
+  }
+  .info-card h2 { font-size: 1.6rem; margin-bottom: 1.2rem; }
+  .info-item { display: flex; gap: .9rem; align-items: flex-start; padding: 1rem 0; border-top: 2px solid rgba(123,75,214,.08); }
+  .info-item:first-of-type { border-top: none; padding-top: 0; }
+  .info-icon { font-size: 1.7rem; line-height: 1; flex: 0 0 auto; }
+  .info-item h3 { font-family: "Baloo 2", sans-serif; font-size: 1.12rem; margin: 0 0 .25rem; color: var(--grape-dark); }
+  .info-item p { margin: 0; font-weight: 600; color: var(--ink); line-height: 1.45; }
   .contact-actions { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; }
   .location-block { margin: 0 auto 1.3rem; max-width: 40ch; display: flex; flex-direction: column; gap: .25rem; }
   .location-line { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: .98rem; line-height: 1.4; }
@@ -413,6 +451,7 @@
       <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12C21.33 1.36 20.66.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-10.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
     </a>
   </div>
+  <button class="footer-info-link" id="info-btn">ℹ️ Info &amp; good to know</button>
   <div class="landing-copyright">© 2026 Twinkle Pop Face</div>
 </div>
 </div>
@@ -430,6 +469,14 @@
   </div>
   <div class="tabs" id="tabs" role="tablist"></div>
   <div class="subtabs" id="subtabs" role="tablist" hidden></div>
+  <div class="view-controls">
+    <span class="view-label">View</span>
+    <div class="density-toggle" id="density-toggle" role="group" aria-label="Designs per row">
+      <button class="density-btn" data-cols="2" aria-label="2 per row">▪▪</button>
+      <button class="density-btn" data-cols="3" aria-label="3 per row">▪▪▪</button>
+      <button class="density-btn" data-cols="4" aria-label="4 per row">▪▪▪▪</button>
+    </div>
+  </div>
   <div class="price-controls" id="price-controls">
     <div class="price-filters" id="price-filters" role="group" aria-label="Filter by price"></div>
     <label class="sort-wrap">
@@ -446,7 +493,7 @@
 
 <main id="gallery">
   <p id="price-hint" style="text-align:center;color:var(--muted);font-weight:700;font-size:.9rem;margin:.2rem 0 1rem">Prices shown are card prices — save $2 on each with cash 💵</p>
-  <div id="results"></div>
+  <div id="results" data-cols="2"></div>
   <div class="empty" id="empty" hidden>No designs match that search. Try another word!</div>
 </main>
 
@@ -487,7 +534,7 @@
       <span class="location-line">📍 St. John's and surrounding areas, Mount Pearl, Paradise and Conception Bay South in NL, Canada</span>
     </div>
     <div class="contact-actions">
-      <a href="mailto:twinklepopface@outlook.com" class="btn btn-white">✉️ Email us</a>
+      <a href="mailto:hello@twinklepopface.com" class="btn btn-white">✉️ Email us</a>
     </div>
     <div class="social-row">
       <span class="social-prompt">Follow &amp; like us:</span>
@@ -501,6 +548,39 @@
   </div>
 </section>
 </div><!-- /book-screen -->
+
+<div id="info-screen" hidden>
+<div class="gallery-topbar">
+  <button class="back-btn" id="info-back-btn" aria-label="Back">← Back</button>
+  <img class="topbar-logo" src="assets/logo.png" alt="Twinkle Pop Face" />
+</div>
+<section class="block">
+  <div class="info-card">
+    <h2 style="margin-top:0">Good to know</h2>
+    <div class="info-item">
+      <span class="info-icon">🛡️</span>
+      <div>
+        <h3>Fully insured</h3>
+        <p>Twinkle Pop Face is insured, so you can book with peace of mind for parties, schools, and public events.</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="info-icon">🎨</span>
+      <div>
+        <h3>High-quality face paints</h3>
+        <p>We use professional, skin-safe, high-quality face paints for bright, long-lasting designs that are gentle on the skin.</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="info-icon">✨</span>
+      <div>
+        <h3>Original designs</h3>
+        <p>All designs shown are our own original face-painting artwork, displayed here on AI-generated illustrations to preview how they look.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div><!-- /info-screen -->
 
 <footer id="site-footer">© 2026 Twinkle Pop Face</footer>
 
@@ -555,6 +635,7 @@ async function load() {
   if (h === "#browse") { setScreen("gallery"); history.pushState({ screen: "gallery" }, "", "#browse"); }
   else if (h === "#pricing") { setScreen("pricing"); history.pushState({ screen: "pricing" }, "", "#pricing"); }
   else if (h === "#book") { setScreen("book"); history.pushState({ screen: "book" }, "", "#book"); }
+  else if (h === "#info") { setScreen("info"); history.pushState({ screen: "info" }, "", "#info"); }
 }
 
 function availablePrices() {
@@ -794,6 +875,7 @@ function setScreen(name) {
   $("landing-screen").hidden = name !== "landing";
   $("gallery-screen").hidden = !galleryLike;
   $("book-screen").hidden = name !== "book";
+  $("info-screen").hidden = name !== "info";
   document.body.classList.toggle("on-landing", name === "landing");
   document.body.classList.toggle("show-prices", name === "pricing");
   // The top-bar back button adapts: from pricing it returns to designs.
@@ -808,10 +890,24 @@ function go(name, hash) {
 
 $("browse-btn").onclick = () => go("gallery", "#browse");
 $("book-btn").onclick = () => go("book", "#book");
+$("info-btn").onclick = () => go("info", "#info");
 $("gallery-book-btn").onclick = () => go("book", "#book");
 $("view-pricing-btn").onclick = () => go("pricing", "#pricing");
 $("back-btn").onclick = () => history.back();
 $("book-back-btn").onclick = () => history.back();
+$("info-back-btn").onclick = () => history.back();
+
+// ---- Thumbnails-per-row density control ----
+(function setupDensity() {
+  const results = $("results");
+  const btns = document.querySelectorAll(".density-btn");
+  function apply(cols) {
+    results.setAttribute("data-cols", cols);
+    btns.forEach((b) => b.setAttribute("aria-pressed", b.dataset.cols === cols ? "true" : "false"));
+  }
+  btns.forEach((b) => { b.onclick = () => apply(b.dataset.cols); });
+  apply(results.getAttribute("data-cols") || "2"); // default 2
+})();
 
 // Make the phone/browser Back button move between screens reliably
 window.addEventListener("popstate", (e) => {
