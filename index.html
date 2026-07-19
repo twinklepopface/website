@@ -319,9 +319,14 @@
     font-weight: 600; font-size: .95rem;
     display: flex; justify-content: space-between; align-items: center; gap: .4rem;
   }
+  .card .label-name {
+    min-width: 0; flex: 1 1 auto;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
   .fav-btn {
     border: none; background: none; cursor: pointer; font-size: 1.15rem; line-height: 1;
     padding: 2px; color: #d9cfe8; transition: transform .1s;
+    flex: 0 0 auto;
   }
   .fav-btn.on { color: var(--coral); }
   .fav-btn:active { transform: scale(1.3); }
@@ -349,6 +354,16 @@
   .lb-price { font-family: "Baloo 2", sans-serif; font-weight: 700; }
   .lb-price .card-price { color: var(--grape-dark); font-size: 1.05rem; }
   .lb-price .cash-price { color: var(--mint); font-size: .95rem; display: block; }
+  .lb-actions { display: flex; align-items: center; gap: .4rem; flex: 0 0 auto; }
+  .lb-fav {
+    border: none; background: var(--cream); cursor: pointer;
+    width: 38px; height: 38px; border-radius: 50%;
+    font-size: 1.3rem; line-height: 1; color: #d9cfe8;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform .1s;
+  }
+  .lb-fav.on { color: var(--coral); }
+  .lb-fav:active { transform: scale(1.25); }
   .lb-close { border: none; background: var(--cream); width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: var(--ink); }
 
   /* Static sections */
@@ -474,7 +489,7 @@
   <div class="tabs" id="tabs" role="tablist"></div>
   <div class="subtabs" id="subtabs" role="tablist" hidden></div>
   <div class="view-controls">
-    <span class="view-label">Size</span>
+    <span class="view-label">View</span>
     <div class="density-toggle" id="density-toggle" role="group" aria-label="Thumbnail size">
       <button class="density-btn" data-cols="4" aria-label="Small thumbnails">S</button>
       <button class="density-btn" data-cols="3" aria-label="Medium thumbnails">M</button>
@@ -596,7 +611,10 @@
         <h3 id="lb-title"></h3>
         <div id="lb-price" class="lb-price"></div>
       </div>
-      <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+      <div class="lb-actions">
+        <button class="lb-fav" id="lb-fav" aria-label="Save to favorites">♡</button>
+        <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+      </div>
     </div>
   </div>
 </div>
@@ -816,6 +834,7 @@ function cardEl(d) {
   const label = document.createElement("div");
   label.className = "label";
   const span = document.createElement("span");
+  span.className = "label-name";
   span.textContent = d.name;
 
   const fav = document.createElement("button");
@@ -845,7 +864,17 @@ function updateFavbar() {
 
 $("favbar").onclick = () => { showingFavs = !showingFavs; if (showingFavs) { activeCat = "all"; buildTabs(); } render(); window.scrollTo({ top: 0 }); };
 
+let currentLbDesign = null;
+function syncLbFav() {
+  const fav = $("lb-fav");
+  if (!currentLbDesign) return;
+  const on = favs.has(keyOf(currentLbDesign));
+  fav.classList.toggle("on", on);
+  fav.textContent = on ? "♥" : "♡";
+}
+
 function openLightbox(d) {
+  currentLbDesign = d;
   $("lb-img").src = d.full || d.file;
   $("lb-img").alt = d.name;
   $("lb-title").textContent = d.name;
@@ -858,8 +887,17 @@ function openLightbox(d) {
   } else {
     priceEl.innerHTML = "";
   }
+  syncLbFav();
   $("lightbox").classList.add("open");
 }
+
+$("lb-fav").onclick = () => {
+  if (!currentLbDesign) return;
+  toggleFav(keyOf(currentLbDesign));
+  syncLbFav();
+  updateFavbar();
+  render(); // keep the grid's hearts in sync
+};
 function closeLightbox() { $("lightbox").classList.remove("open"); }
 $("lb-close").onclick = closeLightbox;
 $("lightbox").onclick = (e) => { if (e.target.id === "lightbox") closeLightbox(); };
