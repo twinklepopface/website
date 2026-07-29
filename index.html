@@ -295,15 +295,12 @@
     --tier3: #CC00CC; /* Super */
   }
   .tier-star {
-    position: absolute; top: 7px; left: 7px;
-    font-size: 1.5rem; line-height: 1;
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
-    pointer-events: none;
+    flex: 0 0 auto;
+    font-size: 1.05rem; line-height: 1;
   }
   .tier-star.t1 { color: var(--tier1); }
   .tier-star.t2 { color: var(--tier2); }
   .tier-star.t3 { color: var(--tier3); }
-  #results[data-cols="4"] .tier-star, #results[data-cols="3"] .tier-star { font-size: 1.2rem; }
   .card .label {
     padding: .6rem .7rem .7rem;
     font-family: "Baloo 2", sans-serif;
@@ -311,6 +308,10 @@
     display: flex; justify-content: space-between; align-items: center; gap: .4rem;
   }
   .card .label-name {
+    min-width: 0; flex: 1 1 auto;
+    display: flex; align-items: center; gap: .3rem;
+  }
+  .card .label-text {
     min-width: 0; flex: 1 1 auto;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
@@ -736,19 +737,23 @@ function cardEl(d) {
   const thumbWrap = document.createElement("div");
   thumbWrap.className = "thumb-wrap";
   thumbWrap.appendChild(img);
+
+  const label = document.createElement("div");
+  label.className = "label";
+
+  const nameWrap = document.createElement("span");
+  nameWrap.className = "label-name";
   if (d.tier) {
     const star = document.createElement("span");
     star.className = "tier-star t" + d.tier;
     star.textContent = "★";
     star.setAttribute("aria-label", tierName(d.tier) + " tier");
-    thumbWrap.appendChild(star);
+    nameWrap.appendChild(star);
   }
-
-  const label = document.createElement("div");
-  label.className = "label";
-  const span = document.createElement("span");
-  span.className = "label-name";
-  span.textContent = d.name;
+  const nameText = document.createElement("span");
+  nameText.className = "label-text";
+  nameText.textContent = d.name;
+  nameWrap.appendChild(nameText);
 
   const fav = document.createElement("button");
   fav.className = "fav-btn" + (favs.has(keyOf(d)) ? " on" : "");
@@ -756,7 +761,7 @@ function cardEl(d) {
   fav.setAttribute("aria-label", "Save to favorites");
   fav.onclick = (e) => { e.stopPropagation(); toggleFav(keyOf(d)); fav.classList.toggle("on"); fav.textContent = favs.has(keyOf(d)) ? "♥" : "♡"; updateFavbar(); if (showingFavs) render(); };
 
-  label.appendChild(span);
+  label.appendChild(nameWrap);
   label.appendChild(fav);
   card.appendChild(thumbWrap);
   card.appendChild(label);
