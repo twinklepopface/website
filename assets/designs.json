@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-29T14:29:58.444Z",
+  "generated": "2026-07-29T14:39:02.305Z",
   "categories": [
     {
       "id": "animals",
@@ -234,115 +234,115 @@
       "name": "Princesses",
       "designs": [
         {
-          "name": "Ballerina Butterfly 22",
-          "tier": null,
-          "thumb": "generated/princesses/butterflies/ballerina-butterfly-22.thumb.webp",
-          "full": "generated/princesses/butterflies/ballerina-butterfly-22.webp",
+          "name": "Ballerina Butterfly",
+          "tier": 3,
+          "thumb": "generated/princesses/butterflies/ballerina-butterfly-3.thumb.webp",
+          "full": "generated/princesses/butterflies/ballerina-butterfly-3.webp",
           "sub": "butterflies"
         },
         {
-          "name": "Ghost Butterfly Face 17",
-          "tier": null,
-          "thumb": "generated/princesses/butterflies/ghost-butterfly-face-17.thumb.webp",
-          "full": "generated/princesses/butterflies/ghost-butterfly-face-17.webp",
+          "name": "Ghost Butterfly Face",
+          "tier": 2,
+          "thumb": "generated/princesses/butterflies/ghost-butterfly-face-2.thumb.webp",
+          "full": "generated/princesses/butterflies/ghost-butterfly-face-2.webp",
           "sub": "butterflies"
         },
         {
-          "name": "Half Butterfly 17",
-          "tier": null,
-          "thumb": "generated/princesses/butterflies/half-butterfly-17.thumb.webp",
-          "full": "generated/princesses/butterflies/half-butterfly-17.webp",
+          "name": "Half Butterfly",
+          "tier": 2,
+          "thumb": "generated/princesses/butterflies/half-butterfly-2.thumb.webp",
+          "full": "generated/princesses/butterflies/half-butterfly-2.webp",
           "sub": "butterflies"
         },
         {
-          "name": "Pink Butterfly Face 22",
-          "tier": null,
-          "thumb": "generated/princesses/butterflies/pink-butterfly-face-22.thumb.webp",
-          "full": "generated/princesses/butterflies/pink-butterfly-face-22.webp",
+          "name": "Pink Butterfly Face",
+          "tier": 3,
+          "thumb": "generated/princesses/butterflies/pink-butterfly-face-3.thumb.webp",
+          "full": "generated/princesses/butterflies/pink-butterfly-face-3.webp",
           "sub": "butterflies"
         },
         {
-          "name": "Ballerina Crown 22",
-          "tier": null,
-          "thumb": "generated/princesses/crowns/ballerina-crown-22.thumb.webp",
-          "full": "generated/princesses/crowns/ballerina-crown-22.webp",
+          "name": "Ballerina Crown",
+          "tier": 3,
+          "thumb": "generated/princesses/crowns/ballerina-crown-3.thumb.webp",
+          "full": "generated/princesses/crowns/ballerina-crown-3.webp",
           "sub": "crowns"
         },
         {
-          "name": "Heart Crown 17",
-          "tier": null,
-          "thumb": "generated/princesses/crowns/heart-crown-17.thumb.webp",
-          "full": "generated/princesses/crowns/heart-crown-17.webp",
+          "name": "Heart Crown",
+          "tier": 2,
+          "thumb": "generated/princesses/crowns/heart-crown-2.thumb.webp",
+          "full": "generated/princesses/crowns/heart-crown-2.webp",
           "sub": "crowns"
         },
         {
-          "name": "Ice Crown 22",
-          "tier": null,
-          "thumb": "generated/princesses/crowns/ice-crown-22.thumb.webp",
-          "full": "generated/princesses/crowns/ice-crown-22.webp",
+          "name": "Ice Crown",
+          "tier": 3,
+          "thumb": "generated/princesses/crowns/ice-crown-3.thumb.webp",
+          "full": "generated/princesses/crowns/ice-crown-3.webp",
           "sub": "crowns"
         },
         {
-          "name": "Fairy 17",
-          "tier": null,
-          "thumb": "generated/princesses/others/fairy-17.thumb.webp",
-          "full": "generated/princesses/others/fairy-17.webp",
+          "name": "Fairy",
+          "tier": 2,
+          "thumb": "generated/princesses/others/fairy-2.thumb.webp",
+          "full": "generated/princesses/others/fairy-2.webp",
           "sub": "others"
         },
         {
-          "name": "Mermaid on Arm 17",
-          "tier": null,
-          "thumb": "generated/princesses/others/mermaid-on-arm-17.thumb.webp",
-          "full": "generated/princesses/others/mermaid-on-arm-17.webp",
+          "name": "Mermaid on Arm",
+          "tier": 2,
+          "thumb": "generated/princesses/others/mermaid-on-arm-2.thumb.webp",
+          "full": "generated/princesses/others/mermaid-on-arm-2.webp",
           "sub": "others"
         },
         {
-          "name": "Mermaid Tail 22",
-          "tier": null,
-          "thumb": "generated/princesses/others/mermaid-tail-22.thumb.webp",
-          "full": "generated/princesses/others/mermaid-tail-22.webp",
+          "name": "Mermaid Tail",
+          "tier": 3,
+          "thumb": "generated/princesses/others/mermaid-tail-3.thumb.webp",
+          "full": "generated/princesses/others/mermaid-tail-3.webp",
           "sub": "others"
         },
         {
-          "name": "Snow Swirl Eye 17",
-          "tier": null,
-          "thumb": "generated/princesses/others/snow-swirl-eye-17.thumb.webp",
-          "full": "generated/princesses/others/snow-swirl-eye-17.webp",
+          "name": "Snow Swirl Eye",
+          "tier": 2,
+          "thumb": "generated/princesses/others/snow-swirl-eye-2.thumb.webp",
+          "full": "generated/princesses/others/snow-swirl-eye-2.webp",
           "sub": "others"
         },
         {
-          "name": "Pastel Unicorn 22",
-          "tier": null,
-          "thumb": "generated/princesses/unicorns/pastel-unicorn-22.thumb.webp",
-          "full": "generated/princesses/unicorns/pastel-unicorn-22.webp",
+          "name": "Pastel Unicorn",
+          "tier": 3,
+          "thumb": "generated/princesses/unicorns/pastel-unicorn-3.thumb.webp",
+          "full": "generated/princesses/unicorns/pastel-unicorn-3.webp",
           "sub": "unicorns"
         },
         {
-          "name": "Purple Unicorn 17",
-          "tier": null,
-          "thumb": "generated/princesses/unicorns/purple-unicorn-17.thumb.webp",
-          "full": "generated/princesses/unicorns/purple-unicorn-17.webp",
+          "name": "Purple Unicorn",
+          "tier": 2,
+          "thumb": "generated/princesses/unicorns/purple-unicorn-2.thumb.webp",
+          "full": "generated/princesses/unicorns/purple-unicorn-2.webp",
           "sub": "unicorns"
         },
         {
-          "name": "Rainbow Unicorn 17",
-          "tier": null,
-          "thumb": "generated/princesses/unicorns/rainbow-unicorn-17.thumb.webp",
-          "full": "generated/princesses/unicorns/rainbow-unicorn-17.webp",
+          "name": "Rainbow Unicorn",
+          "tier": 2,
+          "thumb": "generated/princesses/unicorns/rainbow-unicorn-2.thumb.webp",
+          "full": "generated/princesses/unicorns/rainbow-unicorn-2.webp",
           "sub": "unicorns"
         },
         {
-          "name": "Unicorn Eye 17",
-          "tier": null,
-          "thumb": "generated/princesses/unicorns/unicorn-eye-17.thumb.webp",
-          "full": "generated/princesses/unicorns/unicorn-eye-17.webp",
+          "name": "Unicorn Eye",
+          "tier": 2,
+          "thumb": "generated/princesses/unicorns/unicorn-eye-2.thumb.webp",
+          "full": "generated/princesses/unicorns/unicorn-eye-2.webp",
           "sub": "unicorns"
         },
         {
-          "name": "Unicorn Rainbow Flowers 22",
-          "tier": null,
-          "thumb": "generated/princesses/unicorns/unicorn-rainbow-flowers-22.thumb.webp",
-          "full": "generated/princesses/unicorns/unicorn-rainbow-flowers-22.webp",
+          "name": "Unicorn Rainbow Flowers",
+          "tier": 3,
+          "thumb": "generated/princesses/unicorns/unicorn-rainbow-flowers-3.thumb.webp",
+          "full": "generated/princesses/unicorns/unicorn-rainbow-flowers-3.webp",
           "sub": "unicorns"
         }
       ],
