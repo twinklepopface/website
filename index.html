@@ -246,14 +246,28 @@
   /* Hourly mode: hide all price-related UI */
   /* Tier legend */
   .tier-legend {
-    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    max-width: 900px; margin: .6rem auto .2rem; padding: .5rem;
+    display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap;
+    max-width: 900px; margin: .7rem auto .3rem; padding: .5rem;
   }
-  .tier-legend .tl-item { display: inline-flex; align-items: center; gap: .3rem; font-family: "Baloo 2"; font-weight: 700; font-size: .9rem; color: var(--ink); }
-  .tier-legend .tl-star { font-size: 1.15rem; line-height: 1; }
+  .tier-legend .tl-item {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.05rem;
+    color: var(--ink); cursor: pointer;
+    background: #fff; border: 2px solid rgba(123,75,214,.15);
+    padding: .4rem .9rem; border-radius: 999px;
+    transition: transform .1s, box-shadow .12s, border-color .12s;
+  }
+  .tier-legend .tl-item:hover { box-shadow: var(--shadow); }
+  .tier-legend .tl-item:active { transform: scale(.96); }
+  .tier-legend .tl-item[aria-pressed="true"] { border-color: var(--grape); background: #f3ecfb; }
+  .tier-legend .tl-star { font-size: 1.3rem; line-height: 1; }
   .tier-legend .t1 { color: var(--tier1); }
   .tier-legend .t2 { color: var(--tier2); }
   .tier-legend .t3 { color: var(--tier3); }
+  .fav-hint {
+    text-align: center; color: var(--muted); font-weight: 600;
+    font-size: .85rem; margin: .1rem 0 1rem;
+  }
 
   /* Gallery */
   main { max-width: 1100px; margin: 0 auto; padding: 1.4rem 1rem 3rem; }
@@ -490,11 +504,12 @@
 </div>
 
 <main id="gallery">
-  <div class="tier-legend" aria-label="Pricing tiers">
-    <span class="tl-item"><span class="tl-star t1">★</span> Simple</span>
-    <span class="tl-item"><span class="tl-star t2">★</span> Extra</span>
-    <span class="tl-item"><span class="tl-star t3">★</span> Super</span>
+  <div class="tier-legend" id="tier-legend" role="group" aria-label="Filter by tier">
+    <button class="tl-item" data-tier="1"><span class="tl-star t1">★</span> Simple</button>
+    <button class="tl-item" data-tier="2"><span class="tl-star t2">★</span> Extra</button>
+    <button class="tl-item" data-tier="3"><span class="tl-star t3">★</span> Super</button>
   </div>
+  <p class="fav-hint" id="fav-hint">Tap the ♡ on any design to save it to your favorites.</p>
   <div id="results" data-cols="2"></div>
   <div class="empty" id="empty" hidden>No designs match that search. Try another word!</div>
 </main>
@@ -591,6 +606,7 @@ let favs = new Set();
 try { favs = new Set(JSON.parse(localStorage.getItem(FAVKEY) || "[]")); } catch (e) {}
 let activeCat = "all";
 let activeSub = "all";
+let activeTier = null; // null = all tiers; else 1/2/3
 let query = "";
 let showingFavs = false;
 
@@ -671,6 +687,7 @@ function render() {
 
   if (showingFavs) {
     let favDesigns = allDesigns().filter((d) => favs.has(keyOf(d)));
+    if (activeTier) favDesigns = favDesigns.filter((d) => d.tier === activeTier);
     renderGroup(results, "★ Favorites", favDesigns);
     $("empty").hidden = favDesigns.length > 0;
     updateFavbar();
@@ -686,6 +703,7 @@ function render() {
     if (c.id === activeCat && activeSub !== "all") {
       designs = designs.filter((d) => d.sub === activeSub);
     }
+    if (activeTier) designs = designs.filter((d) => d.tier === activeTier);
     if (query) designs = designs.filter((d) => match(d));
     if (designs.length) {
       // Title reflects the subcategory when one is selected.
@@ -775,6 +793,9 @@ function toggleFav(file) {
 
 function updateFavbar() {
   const bar = $("favbar");
+  const hint = $("fav-hint");
+  // Hide the "tap the heart" hint once they have at least one favorite.
+  if (hint) hint.style.display = favs.size === 0 ? "block" : "none";
   if (favs.size === 0) { bar.classList.remove("show"); showingFavs = false; return; }
   bar.classList.add("show");
   bar.textContent = showingFavs ? "← All designs" : `♥ ${favs.size}`;
@@ -859,6 +880,23 @@ $("info-back-btn").onclick = () => history.back();
   }
   btns.forEach((b) => { b.onclick = () => apply(b.dataset.cols); });
   apply(results.getAttribute("data-cols") || "2"); // default 2
+})();
+
+// ---- Tier legend as filter (tap Simple / Extra / Super) ----
+(function setupTierFilter() {
+  const btns = document.querySelectorAll("#tier-legend .tl-item");
+  function refresh() {
+    btns.forEach((b) => b.setAttribute("aria-pressed", Number(b.dataset.tier) === activeTier ? "true" : "false"));
+  }
+  btns.forEach((b) => {
+    b.onclick = () => {
+      const t = Number(b.dataset.tier);
+      activeTier = (activeTier === t ? null : t); // tap again to clear
+      refresh();
+      render();
+    };
+  });
+  refresh();
 })();
 
 // Make the phone/browser Back button move between screens reliably
