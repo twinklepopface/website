@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-29T19:24:25.032Z",
+  "generated": "2026-07-31T23:50:25.586Z",
   "categories": [
     {
       "id": "animals",
@@ -7,21 +7,27 @@
       "designs": [
         {
           "name": "3d Spider",
-          "tier": 2,
-          "thumb": "generated/animals/3d-spider-2.thumb.webp",
-          "full": "generated/animals/3d-spider-2.webp"
+          "tier": 1,
+          "thumb": "generated/animals/3d-spider-1.thumb.webp",
+          "full": "generated/animals/3d-spider-1.webp"
         },
         {
           "name": "Bee",
-          "tier": 2,
-          "thumb": "generated/animals/bee-2.thumb.webp",
-          "full": "generated/animals/bee-2.webp"
+          "tier": 1,
+          "thumb": "generated/animals/bee-1.thumb.webp",
+          "full": "generated/animals/bee-1.webp"
         },
         {
           "name": "Claw",
           "tier": 2,
           "thumb": "generated/animals/claw-2.thumb.webp",
           "full": "generated/animals/claw-2.webp"
+        },
+        {
+          "name": "Dinosaur",
+          "tier": 3,
+          "thumb": "generated/animals/dinosaur-3.thumb.webp",
+          "full": "generated/animals/dinosaur-3.webp"
         },
         {
           "name": "Dinosaur Eye",
@@ -31,27 +37,27 @@
         },
         {
           "name": "Dolphin",
-          "tier": 2,
-          "thumb": "generated/animals/dolphin-2.thumb.webp",
-          "full": "generated/animals/dolphin-2.webp"
+          "tier": 1,
+          "thumb": "generated/animals/dolphin-1.thumb.webp",
+          "full": "generated/animals/dolphin-1.webp"
         },
         {
           "name": "Jellyfish",
-          "tier": 2,
-          "thumb": "generated/animals/jellyfish-2.thumb.webp",
-          "full": "generated/animals/jellyfish-2.webp"
+          "tier": 1,
+          "thumb": "generated/animals/jellyfish-1.thumb.webp",
+          "full": "generated/animals/jellyfish-1.webp"
         },
         {
           "name": "Leopard Eye",
-          "tier": 2,
-          "thumb": "generated/animals/leopard-eye-2.thumb.webp",
-          "full": "generated/animals/leopard-eye-2.webp"
+          "tier": 1,
+          "thumb": "generated/animals/leopard-eye-1.thumb.webp",
+          "full": "generated/animals/leopard-eye-1.webp"
         },
         {
           "name": "Pink Leopard Eye",
-          "tier": 2,
-          "thumb": "generated/animals/pink-leopard-eye-2.thumb.webp",
-          "full": "generated/animals/pink-leopard-eye-2.webp"
+          "tier": 1,
+          "thumb": "generated/animals/pink-leopard-eye-1.thumb.webp",
+          "full": "generated/animals/pink-leopard-eye-1.webp"
         },
         {
           "name": "Puppy Face",
@@ -66,16 +72,22 @@
           "full": "generated/animals/purple-cat-face-3.webp"
         },
         {
-          "name": "Small Butterfly",
+          "name": "Shark",
           "tier": 2,
-          "thumb": "generated/animals/small-butterfly-2.thumb.webp",
-          "full": "generated/animals/small-butterfly-2.webp"
+          "thumb": "generated/animals/shark-2.thumb.webp",
+          "full": "generated/animals/shark-2.webp"
+        },
+        {
+          "name": "Small Butterfly",
+          "tier": 1,
+          "thumb": "generated/animals/small-butterfly-1.thumb.webp",
+          "full": "generated/animals/small-butterfly-1.webp"
         },
         {
           "name": "Snake",
-          "tier": 2,
-          "thumb": "generated/animals/snake-2.thumb.webp",
-          "full": "generated/animals/snake-2.webp"
+          "tier": 1,
+          "thumb": "generated/animals/snake-1.thumb.webp",
+          "full": "generated/animals/snake-1.webp"
         },
         {
           "name": "Spider",
@@ -90,22 +102,22 @@
           "full": "generated/animals/teddy-bear-2.webp"
         },
         {
-          "name": "Tiger Eye",
-          "tier": 2,
-          "thumb": "generated/animals/tiger-eye-2.thumb.webp",
-          "full": "generated/animals/tiger-eye-2.webp"
-        },
-        {
           "name": "Tiger Face",
           "tier": 3,
           "thumb": "generated/animals/tiger-face-3.thumb.webp",
           "full": "generated/animals/tiger-face-3.webp"
         },
         {
-          "name": "White N Pink Cat",
+          "name": "White Kitty",
           "tier": 2,
-          "thumb": "generated/animals/white-n-pink-cat-2.thumb.webp",
-          "full": "generated/animals/white-n-pink-cat-2.webp"
+          "thumb": "generated/animals/white-kitty-2.thumb.webp",
+          "full": "generated/animals/white-kitty-2.webp"
+        },
+        {
+          "name": "White Kitty Full Face",
+          "tier": 3,
+          "thumb": "generated/animals/white-kitty-full-face-3.thumb.webp",
+          "full": "generated/animals/white-kitty-full-face-3.webp"
         }
       ]
     },
@@ -174,10 +186,34 @@
           "full": "generated/characters/batman-3.webp"
         },
         {
+          "name": "Kpop Demom Hunter Mira",
+          "tier": 2,
+          "thumb": "generated/characters/kpop-demom-hunter-mira-2.thumb.webp",
+          "full": "generated/characters/kpop-demom-hunter-mira-2.webp"
+        },
+        {
+          "name": "Kpop Demon Hunter Rumi",
+          "tier": 2,
+          "thumb": "generated/characters/kpop-demon-hunter-rumi-2.thumb.webp",
+          "full": "generated/characters/kpop-demon-hunter-rumi-2.webp"
+        },
+        {
+          "name": "Kpop Demon Hunter Zoey",
+          "tier": 2,
+          "thumb": "generated/characters/kpop-demon-hunter-zoey-2.thumb.webp",
+          "full": "generated/characters/kpop-demon-hunter-zoey-2.webp"
+        },
+        {
           "name": "Minecraft",
           "tier": 3,
           "thumb": "generated/characters/minecraft-3.thumb.webp",
           "full": "generated/characters/minecraft-3.webp"
+        },
+        {
+          "name": "Spiderman",
+          "tier": 3,
+          "thumb": "generated/characters/spiderman-3.thumb.webp",
+          "full": "generated/characters/spiderman-3.webp"
         },
         {
           "name": "Spiderman Eye",
@@ -186,16 +222,10 @@
           "full": "generated/characters/spiderman-eye-2.webp"
         },
         {
-          "name": "Spiderman Face",
-          "tier": 3,
-          "thumb": "generated/characters/spiderman-face-3.thumb.webp",
-          "full": "generated/characters/spiderman-face-3.webp"
-        },
-        {
-          "name": "Super Mario",
-          "tier": 3,
-          "thumb": "generated/characters/super-mario-3.thumb.webp",
-          "full": "generated/characters/super-mario-3.webp"
+          "name": "Spiderman Eye",
+          "tier": null,
+          "thumb": "generated/characters/spiderman-eye.thumb.webp",
+          "full": "generated/characters/spiderman-eye.webp"
         }
       ]
     },
@@ -205,15 +235,15 @@
       "designs": [
         {
           "name": "Flower Eye",
-          "tier": 2,
-          "thumb": "generated/flowers/flower-eye-2.thumb.webp",
-          "full": "generated/flowers/flower-eye-2.webp"
+          "tier": 1,
+          "thumb": "generated/flowers/flower-eye-1.thumb.webp",
+          "full": "generated/flowers/flower-eye-1.webp"
         },
         {
           "name": "Flower Freckles",
-          "tier": 2,
-          "thumb": "generated/flowers/flower-freckles-2.thumb.webp",
-          "full": "generated/flowers/flower-freckles-2.webp"
+          "tier": 1,
+          "thumb": "generated/flowers/flower-freckles-1.thumb.webp",
+          "full": "generated/flowers/flower-freckles-1.webp"
         },
         {
           "name": "Roses",
@@ -222,10 +252,22 @@
           "full": "generated/flowers/roses-2.webp"
         },
         {
+          "name": "Roses Eye",
+          "tier": 2,
+          "thumb": "generated/flowers/roses-eye-2.thumb.webp",
+          "full": "generated/flowers/roses-eye-2.webp"
+        },
+        {
           "name": "Small Rose",
           "tier": 1,
           "thumb": "generated/flowers/small-rose-1.thumb.webp",
           "full": "generated/flowers/small-rose-1.webp"
+        },
+        {
+          "name": "Spring Flowers",
+          "tier": 2,
+          "thumb": "generated/flowers/spring-flowers-2.thumb.webp",
+          "full": "generated/flowers/spring-flowers-2.webp"
         }
       ]
     },
@@ -255,10 +297,24 @@
           "sub": "butterflies"
         },
         {
+          "name": "Pastel Butterfly",
+          "tier": 3,
+          "thumb": "generated/princesses/butterflies/pastel-butterfly-3.thumb.webp",
+          "full": "generated/princesses/butterflies/pastel-butterfly-3.webp",
+          "sub": "butterflies"
+        },
+        {
           "name": "Pink Butterfly Face",
           "tier": 3,
           "thumb": "generated/princesses/butterflies/pink-butterfly-face-3.thumb.webp",
           "full": "generated/princesses/butterflies/pink-butterfly-face-3.webp",
+          "sub": "butterflies"
+        },
+        {
+          "name": "Rainbow Butterfly",
+          "tier": 3,
+          "thumb": "generated/princesses/butterflies/rainbow-butterfly-3.thumb.webp",
+          "full": "generated/princesses/butterflies/rainbow-butterfly-3.webp",
           "sub": "butterflies"
         },
         {
@@ -283,6 +339,13 @@
           "sub": "crowns"
         },
         {
+          "name": "Mermaid Crown",
+          "tier": 3,
+          "thumb": "generated/princesses/crowns/mermaid-crown-3.thumb.webp",
+          "full": "generated/princesses/crowns/mermaid-crown-3.webp",
+          "sub": "crowns"
+        },
+        {
           "name": "Fairy",
           "tier": 2,
           "thumb": "generated/princesses/others/fairy-2.thumb.webp",
@@ -304,10 +367,17 @@
           "sub": "others"
         },
         {
-          "name": "Snow Swirl Eye",
+          "name": "Rainbow Fairy",
           "tier": 2,
-          "thumb": "generated/princesses/others/snow-swirl-eye-2.thumb.webp",
-          "full": "generated/princesses/others/snow-swirl-eye-2.webp",
+          "thumb": "generated/princesses/others/rainbow-fairy-2.thumb.webp",
+          "full": "generated/princesses/others/rainbow-fairy-2.webp",
+          "sub": "others"
+        },
+        {
+          "name": "Sunset",
+          "tier": 2,
+          "thumb": "generated/princesses/others/sunset-2.thumb.webp",
+          "full": "generated/princesses/others/sunset-2.webp",
           "sub": "others"
         },
         {
@@ -370,28 +440,28 @@
       "name": "Rainbows",
       "designs": [
         {
-          "name": "Rainbo Stars",
-          "tier": 2,
-          "thumb": "generated/rainbows/rainbo-stars-2.thumb.webp",
-          "full": "generated/rainbows/rainbo-stars-2.webp"
-        },
-        {
-          "name": "Rainbow 1",
+          "name": "Basic Rainbow",
           "tier": 1,
-          "thumb": "generated/rainbows/rainbow-1-1.thumb.webp",
-          "full": "generated/rainbows/rainbow-1-1.webp"
+          "thumb": "generated/rainbows/basic-rainbow-1.thumb.webp",
+          "full": "generated/rainbows/basic-rainbow-1.webp"
         },
         {
           "name": "Rainbow Puke",
-          "tier": 2,
-          "thumb": "generated/rainbows/rainbow-puke-2.thumb.webp",
-          "full": "generated/rainbows/rainbow-puke-2.webp"
+          "tier": 1,
+          "thumb": "generated/rainbows/rainbow-puke-1.thumb.webp",
+          "full": "generated/rainbows/rainbow-puke-1.webp"
         },
         {
           "name": "Rainbow with Flowers",
-          "tier": 2,
-          "thumb": "generated/rainbows/rainbow-with-flowers-2.thumb.webp",
-          "full": "generated/rainbows/rainbow-with-flowers-2.webp"
+          "tier": 1,
+          "thumb": "generated/rainbows/rainbow-with-flowers-1.thumb.webp",
+          "full": "generated/rainbows/rainbow-with-flowers-1.webp"
+        },
+        {
+          "name": "Starburst",
+          "tier": 1,
+          "thumb": "generated/rainbows/Starburst-1.thumb.webp",
+          "full": "generated/rainbows/Starburst-1.webp"
         }
       ]
     },
@@ -405,6 +475,20 @@
           "thumb": "generated/seasonal/canada-day/hockey-sticks-1.thumb.webp",
           "full": "generated/seasonal/canada-day/hockey-sticks-1.webp",
           "sub": "canada-day"
+        },
+        {
+          "name": "Snow Swirl Eye",
+          "tier": 1,
+          "thumb": "generated/seasonal/christmas/snow-swirl-eye-1.thumb.webp",
+          "full": "generated/seasonal/christmas/snow-swirl-eye-1.webp",
+          "sub": "christmas"
+        },
+        {
+          "name": "Skeleton",
+          "tier": 2,
+          "thumb": "generated/seasonal/halloween/skeleton-2.thumb.webp",
+          "full": "generated/seasonal/halloween/skeleton-2.webp",
+          "sub": "halloween"
         },
         {
           "name": "Heart Freckles",
@@ -434,6 +518,14 @@
           "name": "Canada Day"
         },
         {
+          "id": "christmas",
+          "name": "Christmas"
+        },
+        {
+          "id": "halloween",
+          "name": "Halloween"
+        },
+        {
           "id": "valentines-day",
           "name": "Valentines Day"
         }
@@ -445,9 +537,9 @@
       "designs": [
         {
           "name": "Rainbow Puke",
-          "tier": 2,
-          "thumb": "generated/silly-and-fun/rainbow-puke-2.thumb.webp",
-          "full": "generated/silly-and-fun/rainbow-puke-2.webp"
+          "tier": 1,
+          "thumb": "generated/silly-and-fun/rainbow-puke-1.thumb.webp",
+          "full": "generated/silly-and-fun/rainbow-puke-1.webp"
         },
         {
           "name": "Slime",
@@ -481,45 +573,45 @@
       "designs": [
         {
           "name": "Black Ghost Roses",
-          "tier": 2,
-          "thumb": "generated/teens-n-up/black-ghost-roses-2.thumb.webp",
-          "full": "generated/teens-n-up/black-ghost-roses-2.webp"
+          "tier": 1,
+          "thumb": "generated/teens-n-up/black-ghost-roses-1.thumb.webp",
+          "full": "generated/teens-n-up/black-ghost-roses-1.webp"
         },
         {
           "name": "Feather",
-          "tier": 2,
-          "thumb": "generated/teens-n-up/feather-2.thumb.webp",
-          "full": "generated/teens-n-up/feather-2.webp"
+          "tier": 1,
+          "thumb": "generated/teens-n-up/feather-1.thumb.webp",
+          "full": "generated/teens-n-up/feather-1.webp"
         },
         {
           "name": "Flower Bracelet",
-          "tier": 2,
-          "thumb": "generated/teens-n-up/flower-bracelet-2.thumb.webp",
-          "full": "generated/teens-n-up/flower-bracelet-2.webp"
+          "tier": 1,
+          "thumb": "generated/teens-n-up/flower-bracelet-1.thumb.webp",
+          "full": "generated/teens-n-up/flower-bracelet-1.webp"
         },
         {
           "name": "Flower Eye",
-          "tier": 2,
-          "thumb": "generated/teens-n-up/flower-eye-2.thumb.webp",
-          "full": "generated/teens-n-up/flower-eye-2.webp"
+          "tier": 1,
+          "thumb": "generated/teens-n-up/flower-eye-1.thumb.webp",
+          "full": "generated/teens-n-up/flower-eye-1.webp"
         },
         {
-          "name": "Ghost Roses",
-          "tier": 1,
-          "thumb": "generated/teens-n-up/ghost-roses-1.thumb.webp",
-          "full": "generated/teens-n-up/ghost-roses-1.webp"
+          "name": "Roses Eye",
+          "tier": 2,
+          "thumb": "generated/teens-n-up/roses-eye-2.thumb.webp",
+          "full": "generated/teens-n-up/roses-eye-2.webp"
         },
         {
           "name": "Small Butterfly",
-          "tier": 2,
-          "thumb": "generated/teens-n-up/small-butterfly-2.thumb.webp",
-          "full": "generated/teens-n-up/small-butterfly-2.webp"
+          "tier": 1,
+          "thumb": "generated/teens-n-up/small-butterfly-1.thumb.webp",
+          "full": "generated/teens-n-up/small-butterfly-1.webp"
         },
         {
           "name": "Snake",
-          "tier": 2,
-          "thumb": "generated/teens-n-up/snake-2.thumb.webp",
-          "full": "generated/teens-n-up/snake-2.webp"
+          "tier": 1,
+          "thumb": "generated/teens-n-up/snake-1.thumb.webp",
+          "full": "generated/teens-n-up/snake-1.webp"
         },
         {
           "name": "Spider",
@@ -532,6 +624,12 @@
           "tier": 1,
           "thumb": "generated/teens-n-up/tribal-tattoo-1.thumb.webp",
           "full": "generated/teens-n-up/tribal-tattoo-1.webp"
+        },
+        {
+          "name": "White Ghost Roses",
+          "tier": 1,
+          "thumb": "generated/teens-n-up/white-ghost-roses-1.thumb.webp",
+          "full": "generated/teens-n-up/white-ghost-roses-1.webp"
         }
       ]
     }
