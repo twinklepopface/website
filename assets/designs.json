@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01T00:00:26.922Z",
+  "generated": "2026-08-01T01:17:39.226Z",
   "categories": [
     {
       "id": "animals",
@@ -374,13 +374,6 @@
           "sub": "others"
         },
         {
-          "name": "Sunset",
-          "tier": 2,
-          "thumb": "generated/princesses/others/sunset-2.thumb.webp",
-          "full": "generated/princesses/others/sunset-2.webp",
-          "sub": "others"
-        },
-        {
           "name": "Pastel Unicorn",
           "tier": 3,
           "thumb": "generated/princesses/unicorns/pastel-unicorn-3.thumb.webp",
@@ -399,6 +392,13 @@
           "tier": 2,
           "thumb": "generated/princesses/unicorns/rainbow-unicorn-2.thumb.webp",
           "full": "generated/princesses/unicorns/rainbow-unicorn-2.webp",
+          "sub": "unicorns"
+        },
+        {
+          "name": "Unicorn",
+          "tier": 2,
+          "thumb": "generated/princesses/unicorns/unicorn-2.thumb.webp",
+          "full": "generated/princesses/unicorns/unicorn-2.webp",
           "sub": "unicorns"
         },
         {
@@ -572,10 +572,10 @@
       "name": "Teens N Up",
       "designs": [
         {
-          "name": "Black Ghost Roses",
+          "name": "Black Roses",
           "tier": 1,
-          "thumb": "generated/teens-n-up/black-ghost-roses-1.thumb.webp",
-          "full": "generated/teens-n-up/black-ghost-roses-1.webp"
+          "thumb": "generated/teens-n-up/black-roses-1.thumb.webp",
+          "full": "generated/teens-n-up/black-roses-1.webp"
         },
         {
           "name": "Feather",
@@ -596,10 +596,10 @@
           "full": "generated/teens-n-up/flower-eye-1.webp"
         },
         {
-          "name": "Roses Eye",
+          "name": "Roses",
           "tier": 2,
-          "thumb": "generated/teens-n-up/roses-eye-2.thumb.webp",
-          "full": "generated/teens-n-up/roses-eye-2.webp"
+          "thumb": "generated/teens-n-up/roses-2.thumb.webp",
+          "full": "generated/teens-n-up/roses-2.webp"
         },
         {
           "name": "Small Butterfly",
@@ -618,6 +618,12 @@
           "tier": 1,
           "thumb": "generated/teens-n-up/spider-1.thumb.webp",
           "full": "generated/teens-n-up/spider-1.webp"
+        },
+        {
+          "name": "Sunset",
+          "tier": 2,
+          "thumb": "generated/teens-n-up/sunset-2.thumb.webp",
+          "full": "generated/teens-n-up/sunset-2.webp"
         },
         {
           "name": "Tribal Tattoo",
