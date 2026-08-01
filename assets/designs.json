@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-31T23:50:25.586Z",
+  "generated": "2026-08-01T00:00:26.922Z",
   "categories": [
     {
       "id": "animals",
@@ -100,6 +100,12 @@
           "tier": 2,
           "thumb": "generated/animals/teddy-bear-2.thumb.webp",
           "full": "generated/animals/teddy-bear-2.webp"
+        },
+        {
+          "name": "Tiger Eye",
+          "tier": 2,
+          "thumb": "generated/animals/tiger-eye-2.thumb.webp",
+          "full": "generated/animals/tiger-eye-2.webp"
         },
         {
           "name": "Tiger Face",
@@ -222,10 +228,10 @@
           "full": "generated/characters/spiderman-eye-2.webp"
         },
         {
-          "name": "Spiderman Eye",
-          "tier": null,
-          "thumb": "generated/characters/spiderman-eye.thumb.webp",
-          "full": "generated/characters/spiderman-eye.webp"
+          "name": "Super Mario",
+          "tier": 2,
+          "thumb": "generated/characters/super-mario-2.thumb.webp",
+          "full": "generated/characters/super-mario-2.webp"
         }
       ]
     },
@@ -250,12 +256,6 @@
           "tier": 2,
           "thumb": "generated/flowers/roses-2.thumb.webp",
           "full": "generated/flowers/roses-2.webp"
-        },
-        {
-          "name": "Roses Eye",
-          "tier": 2,
-          "thumb": "generated/flowers/roses-eye-2.thumb.webp",
-          "full": "generated/flowers/roses-eye-2.webp"
         },
         {
           "name": "Small Rose",
