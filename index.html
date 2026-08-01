@@ -278,7 +278,7 @@
   .cat-title .count { font-family: "Nunito"; font-size: .85rem; font-weight: 700; color: #fff; background: var(--mango); padding: .1rem .6rem; border-radius: 999px; }
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: .9rem;
   }
   /* Visitor-chosen density; applied to #results */
@@ -510,7 +510,7 @@
     <button class="tl-item" data-tier="3"><span class="tl-star t3">★</span> Super</button>
   </div>
   <p class="fav-hint" id="fav-hint">Tap the ♡ on any design to save it to your favorites.</p>
-  <div id="results" data-cols="2"></div>
+  <div id="results" data-cols="4"></div>
   <div class="empty" id="empty" hidden>No designs match that search. Try another word!</div>
 </main>
 
@@ -879,7 +879,7 @@ $("info-back-btn").onclick = () => history.back();
     btns.forEach((b) => b.setAttribute("aria-pressed", b.dataset.cols === cols ? "true" : "false"));
   }
   btns.forEach((b) => { b.onclick = () => apply(b.dataset.cols); });
-  apply(results.getAttribute("data-cols") || "2"); // default 2
+  apply(results.getAttribute("data-cols") || "4"); // default 4 (Small)
 })();
 
 // ---- Tier legend as filter (tap Simple / Extra / Super) ----
