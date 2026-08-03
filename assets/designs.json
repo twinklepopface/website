@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01T01:26:43.812Z",
+  "generated": "2026-08-01T01:33:28.416Z",
   "categories": [
     {
       "id": "animals",
@@ -222,6 +222,12 @@
           "full": "generated/characters/spiderman-3.webp"
         },
         {
+          "name": "Spiderman Eye",
+          "tier": 2,
+          "thumb": "generated/characters/spiderman-eye-2.thumb.webp",
+          "full": "generated/characters/spiderman-eye-2.webp"
+        },
+        {
           "name": "Super Mario",
           "tier": 2,
           "thumb": "generated/characters/super-mario-2.thumb.webp",
@@ -244,6 +250,12 @@
           "tier": 1,
           "thumb": "generated/flowers/flower-freckles-1.thumb.webp",
           "full": "generated/flowers/flower-freckles-1.webp"
+        },
+        {
+          "name": "Roses",
+          "tier": 2,
+          "thumb": "generated/flowers/roses-2.thumb.webp",
+          "full": "generated/flowers/roses-2.webp"
         },
         {
           "name": "Small Rose",
