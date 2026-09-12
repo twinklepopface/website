@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T00:51:03.204Z",
+  "generated": "2026-08-03T01:59:20.023Z",
   "categories": [
     {
       "id": "animals",
@@ -16,6 +16,12 @@
           "tier": 2,
           "thumb": "generated/animals/bee-2.thumb.webp",
           "full": "generated/animals/bee-2.webp"
+        },
+        {
+          "name": "Bunny",
+          "tier": 3,
+          "thumb": "generated/animals/bunny-3.thumb.webp",
+          "full": "generated/animals/bunny-3.webp"
         },
         {
           "name": "Claw",
@@ -66,16 +72,16 @@
           "full": "generated/animals/pink-leopard-eye-2.webp"
         },
         {
-          "name": "Puppy Face",
+          "name": "Puppy",
           "tier": 3,
-          "thumb": "generated/animals/puppy-face-3.thumb.webp",
-          "full": "generated/animals/puppy-face-3.webp"
+          "thumb": "generated/animals/puppy-3.thumb.webp",
+          "full": "generated/animals/puppy-3.webp"
         },
         {
-          "name": "Purple Cat Face",
+          "name": "Purple Cat",
           "tier": 3,
-          "thumb": "generated/animals/purple-cat-face-3.thumb.webp",
-          "full": "generated/animals/purple-cat-face-3.webp"
+          "thumb": "generated/animals/purple-cat-3.thumb.webp",
+          "full": "generated/animals/purple-cat-3.webp"
         },
         {
           "name": "Shark",
@@ -447,9 +453,9 @@
       "designs": [
         {
           "name": "Basic Rainbow",
-          "tier": 1,
-          "thumb": "generated/rainbows/basic-rainbow-1.thumb.webp",
-          "full": "generated/rainbows/basic-rainbow-1.webp"
+          "tier": 2,
+          "thumb": "generated/rainbows/basic-rainbow-2.thumb.webp",
+          "full": "generated/rainbows/basic-rainbow-2.webp"
         },
         {
           "name": "Rainbow Puke",
@@ -477,9 +483,9 @@
       "designs": [
         {
           "name": "Hockey Sticks",
-          "tier": 1,
-          "thumb": "generated/seasonal/canada-day/hockey-sticks-1.thumb.webp",
-          "full": "generated/seasonal/canada-day/hockey-sticks-1.webp",
+          "tier": 2,
+          "thumb": "generated/seasonal/canada-day/hockey-sticks-2.thumb.webp",
+          "full": "generated/seasonal/canada-day/hockey-sticks-2.webp",
           "sub": "canada-day"
         },
         {
