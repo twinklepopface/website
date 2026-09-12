@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-12T20:19:24.344Z",
+  "generated": "2026-09-12T20:27:20.480Z",
   "categories": [
     {
       "id": "animals",
@@ -386,13 +386,6 @@
           "sub": "others"
         },
         {
-          "name": "Pastel Unicorn",
-          "tier": 3,
-          "thumb": "generated/princesses/unicorns/pastel-unicorn-3.thumb.webp",
-          "full": "generated/princesses/unicorns/pastel-unicorn-3.webp",
-          "sub": "unicorns"
-        },
-        {
           "name": "Purple Unicorn",
           "tier": 3,
           "thumb": "generated/princesses/unicorns/purple-unicorn-3.thumb.webp",
@@ -411,6 +404,13 @@
           "tier": 2,
           "thumb": "generated/princesses/unicorns/unicorn-2.thumb.webp",
           "full": "generated/princesses/unicorns/unicorn-2.webp",
+          "sub": "unicorns"
+        },
+        {
+          "name": "Unicorn Crown",
+          "tier": 3,
+          "thumb": "generated/princesses/unicorns/unicorn-crown-3.thumb.webp",
+          "full": "generated/princesses/unicorns/unicorn-crown-3.webp",
           "sub": "unicorns"
         },
         {
