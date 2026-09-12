@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-12T20:27:20.480Z",
+  "generated": "2026-09-12T20:35:28.001Z",
   "categories": [
     {
       "id": "animals",
@@ -264,6 +264,12 @@
           "full": "generated/flowers/flower-freckles-2.webp"
         },
         {
+          "name": "Rose Crown",
+          "tier": 3,
+          "thumb": "generated/flowers/rose-crown-3.thumb.webp",
+          "full": "generated/flowers/rose-crown-3.webp"
+        },
+        {
           "name": "Roses",
           "tier": 2,
           "thumb": "generated/flowers/roses-2.thumb.webp",
@@ -330,6 +336,13 @@
           "sub": "butterflies"
         },
         {
+          "name": "Winter Butterfly",
+          "tier": 3,
+          "thumb": "generated/princesses/butterflies/winter-butterfly-3.thumb.webp",
+          "full": "generated/princesses/butterflies/winter-butterfly-3.webp",
+          "sub": "butterflies"
+        },
+        {
           "name": "Ballerina Crown",
           "tier": 3,
           "thumb": "generated/princesses/crowns/ballerina-crown-3.thumb.webp",
@@ -358,10 +371,31 @@
           "sub": "crowns"
         },
         {
-          "name": "Fairy",
+          "name": "Rose Crown",
+          "tier": 3,
+          "thumb": "generated/princesses/crowns/rose-crown-3.thumb.webp",
+          "full": "generated/princesses/crowns/rose-crown-3.webp",
+          "sub": "crowns"
+        },
+        {
+          "name": "Unicorn Crown",
+          "tier": 3,
+          "thumb": "generated/princesses/crowns/unicorn-crown-3.thumb.webp",
+          "full": "generated/princesses/crowns/unicorn-crown-3.webp",
+          "sub": "crowns"
+        },
+        {
+          "name": "Bow",
           "tier": 2,
-          "thumb": "generated/princesses/others/fairy-2.thumb.webp",
-          "full": "generated/princesses/others/fairy-2.webp",
+          "thumb": "generated/princesses/others/bow-2.thumb.webp",
+          "full": "generated/princesses/others/bow-2.webp",
+          "sub": "others"
+        },
+        {
+          "name": "Fairy on Arm",
+          "tier": 2,
+          "thumb": "generated/princesses/others/fairy-on-arm-2.thumb.webp",
+          "full": "generated/princesses/others/fairy-on-arm-2.webp",
           "sub": "others"
         },
         {
@@ -376,13 +410,6 @@
           "tier": 3,
           "thumb": "generated/princesses/others/mermaid-tail-3.thumb.webp",
           "full": "generated/princesses/others/mermaid-tail-3.webp",
-          "sub": "others"
-        },
-        {
-          "name": "Rainbow Fairy",
-          "tier": 2,
-          "thumb": "generated/princesses/others/rainbow-fairy-2.thumb.webp",
-          "full": "generated/princesses/others/rainbow-fairy-2.webp",
           "sub": "others"
         },
         {
@@ -489,6 +516,34 @@
           "sub": "canada-day"
         },
         {
+          "name": "Grinch",
+          "tier": 3,
+          "thumb": "generated/seasonal/christmas/grinch-3.thumb.webp",
+          "full": "generated/seasonal/christmas/grinch-3.webp",
+          "sub": "christmas"
+        },
+        {
+          "name": "Reindeer",
+          "tier": 3,
+          "thumb": "generated/seasonal/christmas/reindeer-3.thumb.webp",
+          "full": "generated/seasonal/christmas/reindeer-3.webp",
+          "sub": "christmas"
+        },
+        {
+          "name": "Santa Face",
+          "tier": 3,
+          "thumb": "generated/seasonal/christmas/santa-face-3.thumb.webp",
+          "full": "generated/seasonal/christmas/santa-face-3.webp",
+          "sub": "christmas"
+        },
+        {
+          "name": "Santa Hat",
+          "tier": 2,
+          "thumb": "generated/seasonal/christmas/santa-hat-2.thumb.webp",
+          "full": "generated/seasonal/christmas/santa-hat-2.webp",
+          "sub": "christmas"
+        },
+        {
           "name": "Snow Swirl Eye",
           "tier": 2,
           "thumb": "generated/seasonal/christmas/snow-swirl-eye-2.thumb.webp",
@@ -496,10 +551,73 @@
           "sub": "christmas"
         },
         {
+          "name": "Winter Butterfly",
+          "tier": 3,
+          "thumb": "generated/seasonal/christmas/winter-butterfly-3.thumb.webp",
+          "full": "generated/seasonal/christmas/winter-butterfly-3.webp",
+          "sub": "christmas"
+        },
+        {
+          "name": "Witch Hat",
+          "tier": 2,
+          "thumb": "generated/seasonal/christmas/witch-hat-2.thumb.webp",
+          "full": "generated/seasonal/christmas/witch-hat-2.webp",
+          "sub": "christmas"
+        },
+        {
+          "name": "Bleeding Eyeball",
+          "tier": 2,
+          "thumb": "generated/seasonal/halloween/bleeding-eyeball-2.thumb.webp",
+          "full": "generated/seasonal/halloween/bleeding-eyeball-2.webp",
+          "sub": "halloween"
+        },
+        {
+          "name": "Clown",
+          "tier": 2,
+          "thumb": "generated/seasonal/halloween/clown-2.thumb.webp",
+          "full": "generated/seasonal/halloween/clown-2.webp",
+          "sub": "halloween"
+        },
+        {
+          "name": "Dancing Pumpkin",
+          "tier": 2,
+          "thumb": "generated/seasonal/halloween/dancing-pumpkin-2.thumb.webp",
+          "full": "generated/seasonal/halloween/dancing-pumpkin-2.webp",
+          "sub": "halloween"
+        },
+        {
+          "name": "Scar",
+          "tier": 2,
+          "thumb": "generated/seasonal/halloween/scar-2.thumb.webp",
+          "full": "generated/seasonal/halloween/scar-2.webp",
+          "sub": "halloween"
+        },
+        {
           "name": "Skeleton",
           "tier": 2,
           "thumb": "generated/seasonal/halloween/skeleton-2.thumb.webp",
           "full": "generated/seasonal/halloween/skeleton-2.webp",
+          "sub": "halloween"
+        },
+        {
+          "name": "Spider Butterfly",
+          "tier": 3,
+          "thumb": "generated/seasonal/halloween/spider-butterfly-3.thumb.webp",
+          "full": "generated/seasonal/halloween/spider-butterfly-3.webp",
+          "sub": "halloween"
+        },
+        {
+          "name": "Stitches",
+          "tier": 2,
+          "thumb": "generated/seasonal/halloween/stitches-2.thumb.webp",
+          "full": "generated/seasonal/halloween/stitches-2.webp",
+          "sub": "halloween"
+        },
+        {
+          "name": "Sugar Skull",
+          "tier": 3,
+          "thumb": "generated/seasonal/halloween/sugar-skull-3.thumb.webp",
+          "full": "generated/seasonal/halloween/sugar-skull-3.webp",
           "sub": "halloween"
         },
         {
