@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-12T20:35:28.001Z",
+  "generated": "2026-09-12T20:37:34.630Z",
   "categories": [
     {
       "id": "animals",
@@ -389,6 +389,13 @@
           "tier": 2,
           "thumb": "generated/princesses/others/bow-2.thumb.webp",
           "full": "generated/princesses/others/bow-2.webp",
+          "sub": "others"
+        },
+        {
+          "name": "Fairy",
+          "tier": 2,
+          "thumb": "generated/princesses/others/fairy-2.thumb.webp",
+          "full": "generated/princesses/others/fairy-2.webp",
           "sub": "others"
         },
         {
