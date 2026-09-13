@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-12T20:37:34.630Z",
+  "generated": "2026-09-13T13:31:18.677Z",
   "categories": [
     {
       "id": "animals",
@@ -565,13 +565,6 @@
           "sub": "christmas"
         },
         {
-          "name": "Witch Hat",
-          "tier": 2,
-          "thumb": "generated/seasonal/christmas/witch-hat-2.thumb.webp",
-          "full": "generated/seasonal/christmas/witch-hat-2.webp",
-          "sub": "christmas"
-        },
-        {
           "name": "Bleeding Eyeball",
           "tier": 2,
           "thumb": "generated/seasonal/halloween/bleeding-eyeball-2.thumb.webp",
@@ -625,6 +618,13 @@
           "tier": 3,
           "thumb": "generated/seasonal/halloween/sugar-skull-3.thumb.webp",
           "full": "generated/seasonal/halloween/sugar-skull-3.webp",
+          "sub": "halloween"
+        },
+        {
+          "name": "Witch Hat",
+          "tier": 2,
+          "thumb": "generated/seasonal/halloween/witch-hat-2.thumb.webp",
+          "full": "generated/seasonal/halloween/witch-hat-2.webp",
           "sub": "halloween"
         },
         {
